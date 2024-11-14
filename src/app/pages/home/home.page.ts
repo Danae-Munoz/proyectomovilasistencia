@@ -56,7 +56,7 @@ export class HomePage {
   async headerClick(button: string) {
 
     if (button === 'testqr')
-      this.showDinoComponent(Dinosaur.jsonDinoExample);
+      this.showDinoComponent(Asistencia.jsonAsisExample);
 
     if (button === 'scan' && Capacitor.getPlatform() === 'web')
       this.selectedComponent = 'qrwebscanner';
@@ -75,7 +75,7 @@ export class HomePage {
 
   showDinoComponent(qr: string) {
 
-    if (Dinosaur.isValidDinosaurQrCode(qr)) {
+    if (Asistencia.isValidAsistenciaQrCode(qr)) {
       console.log(qr)
       this.auth.qrCodeData.next(qr);
       this.changeComponent('dinosaur');

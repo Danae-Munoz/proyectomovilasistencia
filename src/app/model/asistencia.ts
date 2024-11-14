@@ -1,111 +1,93 @@
-import { showAlert } from "../tools/message-functions";
+import { showAlert, showAlertError } from "../tools/message-functions";
 
 export class Asistencia {
 
-  public bloqueInicio: number;
-  public bloqueTermino: number;
-  public dia: string;
-  public horaFin: string;
-  public horaInicio: string;
-  public idAsignatura: string;
-  public nombreAsignatura: string;
-  public nombreProfesor: string;
-  public seccion: string;
-  public sede: string;
+  static jsonAsisExample =
+  `{
+    "sede": "Alonso de Ovalle",
+    "idAsignatura": "PGY4121",
+    "seccion": "001D",
+    "nombreAsignatura": "Aplicaciones Móviles",
+    "nombreProfesor": "Cristian Gómez Vega",
+    "dia": "2022-08-09",
+    "bloqueInicio": "7",
+    "bloqueTermino": "9",
+    "horaInicio": "13:00",    
+    "horaFin": "15:15"     
+  }`;
+  
+    static jsonAsisEmpty =
+    `{
+    "sede": "",
+    "idAsignatura": "",
+    "seccion": "",
+    "nombreAsignatura": "",
+    "nombreProfesor": "",
+    "dia": "",
+    "bloqueInicio": "",
+    "bloqueTermino": "",
+    "horaInicio": "",    
+    "horaFin": "" 
+    }`;
 
-  constructor() {
-    this.bloqueInicio = 0;
-    this.bloqueTermino = 0;
-    this.dia = '';
-    this.horaFin = '';
-    this.horaInicio = '';
-    this.idAsignatura = '';
-    this.nombreAsignatura = '';
-    this.nombreProfesor = '';
-    this.seccion = '';
-    this.sede = '';
-  }
+   sede = '';
+   idAsignatura = '';
+   seccion = '';
+   nombreAsignatura = '';
+   nombreProfesor = '';
+   dia = '';
+   bloqueInicio = '';
+   bloqueTermino = '';
+   horaInicio = '';
+   horaFin = '';
 
-  public setAsistencia(
-    bloqueInicio: number,
-    bloqueTermino: number,
-    dia: string,
-    horaFin: string,
-    horaInicio: string,
+  constructor() { }
+
+  public static getNewAsistencia(
+    sede: string,
     idAsignatura: string,
+    seccion: string,
     nombreAsignatura: string,
     nombreProfesor: string,
-    seccion: string,
-    sede: string): void
-  {
-    this.bloqueInicio = bloqueInicio;
-    this.bloqueTermino = bloqueTermino;
-    this.dia = dia;
-    this.horaFin = horaFin;
-    this.horaInicio = horaInicio;
-    this.idAsignatura = idAsignatura;
-    this.nombreAsignatura = nombreAsignatura;
-    this.nombreProfesor = nombreProfesor;
-    this.seccion = seccion;
-    this.sede = sede;
+    dia: string,
+    bloqueInicio: string,
+    bloqueTermino: string,
+    horaInicio: string,    
+    horaFin: string    
+  ) {
+    const asistencia = new Asistencia();
+    asistencia.sede = sede;
+    asistencia.idAsignatura = idAsignatura;
+    asistencia.seccion = seccion;
+    asistencia.nombreAsignatura = nombreAsignatura;
+    asistencia.nombreProfesor = nombreProfesor;
+    asistencia.dia = dia;
+    asistencia.bloqueInicio = bloqueInicio;
+    asistencia.bloqueTermino = bloqueTermino;
+    asistencia.horaInicio = horaInicio;
+    asistencia.horaFin = horaFin;
+    return asistencia;
   }
 
-  obtenerAsistenciaDesdeQR(datosQR: string) {
-    if (this.verificarAsistenciaDesdeQR(datosQR)) {
-      return JSON.parse(datosQR) as Asistencia;
-    }
-    return new Asistencia();
-  }
-  
-  verificarAsistenciaDesdeQR(datosQR: string) {
-    if (datosQR !== '') {
-      try {
-        const json = JSON.parse(datosQR);
-        if (json.bloqueInicio !== undefined) {
-          return true;
-        }
-      } catch(error: any) {}
-    }
-    return false;
-  }
-
-  static isValidUsuarioQrCode(qr: string) {
-    
+  static isValidAsistenciaQrCode(qr: string) {    
     if (qr === '') return false;
-
     try {
       const json = JSON.parse(qr);
-
-      if ( json.bloqueInicio      !== undefined
-        && json.bloqueTermino     !== undefined
-        && json.dia   !== undefined
-        && json.horaFin    !== undefined
-        && json.horaInicio      !== undefined
+      if ( json.sede       !== undefined
         && json.idAsignatura     !== undefined
-        && json.nombreAsignatura !== undefined
-        && json.nombreProfesor      !== undefined
         && json.seccion     !== undefined
-        && json.sede     !== undefined)
+        && json.nombreAsignatura     !== undefined
+        && json.nombreProfesor       !== undefined
+        && json.dia     !== undefined
+        && json.bloqueInicio !== undefined
+        && json.bloqueTermino      !== undefined
+        && json.horaInicio      !== undefined
+        && json.horaFin      !== undefined)
       {
         return true;
       }
     } catch(error) { }
-
-    showAlert('El código QR escaneado no corresponde a un usuario');
+    showAlert('El código QR escaneado no corresponde a una Asistencia');
     return false;
   }
-
-  static jsonUserExample =
-    `{
-      "bloqueInicio": "9",
-      "bloqueTermino": "9",
-      "dia": "daddad",
-      "horaFin": "str",
-      "horaInicio": "dtjf",
-      "idAsignatura": "dtftj",
-      "nombreAsignatura": "fjy",
-      "nombreProfesor": "aesrh",
-      "seccion": "dhtdth",
-      "sede": "sfaf"
-    }`;
 }
