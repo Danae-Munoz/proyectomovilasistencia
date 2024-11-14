@@ -16,6 +16,7 @@ export class DatabaseService {
     throw new Error('Method not implemented.');
   }
 
+
   testUser1 = User.getNewUsuario(
     'atorres', 
     'atorres@duocuc.cl', 
@@ -93,9 +94,10 @@ export class DatabaseService {
   `;
 
   dataBaseName = 'DinosaurDataBase';
-  db!: SQLiteDBConnection;
+  private db!: SQLiteDBConnection;
   userList: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   listaUsuarios: BehaviorSubject<Usuario[]> = new BehaviorSubject<Usuario[]>([]);
+  
   constructor(private sqliteService: SQLiteService) { }
 
   async initializeDataBase() {
@@ -269,6 +271,15 @@ export class DatabaseService {
     }
   }
 
+  async leerUsuarioCorreo(email: string): Promise<Usuario | undefined> {
+    const usuarios: Usuario[] = (await this.db.query(
+      'SELECT * FROM USER WHERE email=?;', 
+      [email]
+    )).values as Usuario[];
+    return usuarios[0];
+}
+
+
   private rowToUser(row: any): User {
     try {
       const user = new User();
@@ -324,7 +335,7 @@ export class DatabaseService {
 
   async leerCorreo(cuenta: string): Promise<Usuario | undefined> {
     const usuarios: Usuario[]= (await this.db.query(
-      'SELECT * FROM USUARIO WHERE correo=?;', 
+      'SELECT * FROM USER WHERE email=?;', 
       [cuenta])).values as Usuario[];
     return usuarios[0];
   }

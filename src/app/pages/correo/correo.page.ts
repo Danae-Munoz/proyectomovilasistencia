@@ -1,3 +1,4 @@
+// correo.page.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,43 +15,42 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   templateUrl: './correo.page.html',
   styleUrls: ['./correo.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, TranslateModule ]
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule]
 })
 export class CorreoPage implements OnInit {
-
   correo = '';
 
-  constructor(private router: Router, private bd: DatabaseService , private authService: AuthService) { }
+  constructor(
+    private router: Router,
+    private bd: DatabaseService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // Puedes agregar cualquier inicialización aquí si es necesario.
   }
 
-
-
   async recuperarContrasena() {
-    const usu=await this.bd.findUserByEmail(this.correo);
-    if (usu == undefined){
-    this.router.navigate(['/incorrecto']);
-  }else{
-    this.router.navigate(['/pregunta']);
-    if (!usu) {
-      this.router.navigate(['/incorrecto']);
-    } else {
+    try {
+      const usu = await this.bd.leerUsuarioCorreo(this.correo);
       const navigationExtras: NavigationExtras = {
         state: {
           usuario: usu
         }
       };
-      this.router.navigate(['/pregunta'], navigationExtras);
+
+      if (usu) {
+        this.router.navigate(['/pregunta'], navigationExtras);
+      } else {
+        this.router.navigate(['/incorrecto']);
+      }
+    } catch (error) {
+      console.error("Error en recuperarContrasena:", error);
+      // Opcionalmente, podrías mostrar una alerta de error aquí.
     }
-  }
-  
   }
 
   volverAlInicio() {
     this.router.navigate(['/login']);
   }
-
 }
-
