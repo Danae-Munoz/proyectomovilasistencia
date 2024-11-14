@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonSelect, IonSelectOption, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonItem, IonCard } from '@ionic/angular/standalone';
+import { IonSelect, IonSelectOption, IonContent, IonHeader, IonTitle, IonToolbar, IonInput, IonButton, IonItem, IonCard, IonCardHeader, IonCardContent, IonIcon } from '@ionic/angular/standalone';
 import { User } from 'src/app/model/user';
 import { DatabaseService } from 'src/app/services/database.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -16,7 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './misdatos.component.html', // Cambié el nombre del archivo a .component.html
   styleUrls: ['./misdatos.component.scss'], // Cambié el nombre del archivo de estilo a .component.scss
   standalone: true,
-  imports: [IonCard, IonButton, IonInput, IonContent, IonHeader, IonTitle, IonToolbar, 
+  imports: [IonIcon, IonCardContent, IonCardHeader, IonCard, IonButton, IonInput, IonContent, IonHeader, IonTitle, IonToolbar, 
             CommonModule, FormsModule, IonItem, IonSelect, IonSelectOption, TranslateModule]
 })
 export class MisDatosComponent implements OnInit {
@@ -38,7 +38,6 @@ export class MisDatosComponent implements OnInit {
     });
     this.auth.readAuthUser().then((usuario) => {
       if (usuario) {
-        alert('en constructor: ' + this.usuario.educationalLevel.id);
         this.usuario = usuario;
         console.log(this.usuario);
       }
@@ -54,9 +53,6 @@ export class MisDatosComponent implements OnInit {
       showToast('El usuario debe tener un nombre');
     } else {
       console.log(this.usuario);
-      alert('en pagina nombre: ' + this.usuario.firstName);
-      alert('en pagina nivelEducacional: ' + this.usuario.educationalLevel.id);
-      alert('en pagina fecha: ' + this.usuario.dateOfBirth);
       this.bd.saveUser(this.usuario);
       this.auth.saveAuthUser(this.usuario);
       showToast('El usuario fue guardado correctamente');

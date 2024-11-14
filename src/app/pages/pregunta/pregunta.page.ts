@@ -7,13 +7,14 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { Usuario } from 'src/app/model/usuario';
 import { User } from 'src/app/model/user';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-pregunta',
   templateUrl: './pregunta.page.html',
   styleUrls: ['./pregunta.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule]
 })
 export class PreguntaPage implements OnInit {
   usu = new User ();

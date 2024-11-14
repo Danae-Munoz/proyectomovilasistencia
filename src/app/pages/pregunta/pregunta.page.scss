@@ -1,94 +1,22 @@
 
-.full-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  position: relative; /* Agrega posición relativa para que los elementos secundarios se posicionen correctamente */
-}
-
-.background-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-/* Agrega una capa de superposición semitransparente */
-.background-overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 0, 0, 10); /* Ajusta el color y la opacidad de la superposición */
-  z-index: -1;
-}
-
-/* Resto de estilos... */
-
-
-
-/* Cambiar el tamaño de la imagen */
-.mi-panel-header .panel {
-  width: 100px;
-  height: auto;
-  margin: 10px; /* Agregar margen alrededor de la imagen */
-  }
-  
-  /* Cambiar el tamaño de fuente del título */
-  .mi-panel-header .ion-title {
-  font-size: 20px;
-  font-weight: bold; /* Hacer que el título sea negrita */
-  color: #cc3a3a; /* Cambiar el color del texto del título */
-  }
-
-.content-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 90vh; /* Ajusta la altura como desees */
-  padding: 10px; /* Espaciado alrededor del contenido */
-}
 
 ion-title {
   text-align: center;
 }
 
 ion-card-content.login {
-  background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
-  padding: 50px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-top: 80px;
+  --background: transparent; /* Naranja con 50% de transparencia */
+  background-color: rgba(255, 154, 53, 0.705); /* Fondo semi-transparente */
+  padding: 20px;
+  border-radius: 15px; 
 }
 
 ion-button {
   width: 100%;
 }
 
-
-/* Animación de bienvenida */
-.ion-fade-in {
-  animation: fadein 1.5s ease-in-out;
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Animación de tarjeta QR */
+/* Animación de tarjeta */
 .ion-fade-in-up {
   animation: fadeinup 1s ease-in-out;
 }
@@ -104,16 +32,359 @@ ion-button {
   }
 }
 
-h4 {
-  color: #fff;
+
+
+/* Asegúrate de que el logo esté alineado a la izquierda */
+.logo {
+  width: 100px; /* Ajusta el tamaño del logo según tus necesidades */
+  height: auto;
 }
 
-h2 {
-  color: #070000;
+.margin-top {
+  margin-top: 20px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0; 
 }
 
-.item-inner {
+.main-content {
+  height: 100%; /* O 100vh para que ocupe toda la ventana */
+}
+
+ion-card-content.login {
+  --background: transparent; /* Naranja con 50% de transparencia */
+  padding: 20px;
+  border-radius: 15px; 
+  
+}
+
+
+ion-header {
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --padding-end: 20px;
+  --padding-start: 20px;
+  border: none; /* Remueve cualquier borde visible */
+}
+
+ion-input, ion-select,ion-toolbar {
+  color: rgb(255, 145, 0);
+  text-align: center;
+}
+h6{
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.57); /* Aquí aplicas el color también */
+}
+
+.background-container {
+  position: relative; /* Permite el posicionamiento absoluto de los hijos */
+  height: 10%; /* Asegura que ocupe toda la altura */
+}
+.background-container {  
+  position: relative;  
+  height: 100%;  
+} 
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;background-size: cover;
+  background-position: center;
+  z-index: -1; /* Envía la imagen al fondo */
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, th, td {
+  border: 0px;
+  color: rgb(0, 0, 0);
+}
+
+.font-size-12 {
+  font-size: 12px;
+  color: rgb(255, 145, 0);
+}
+
+.font-size-16 {
+  font-size: 16px;
+  color: rgb(255, 145, 0);
+}
+
+.font-size-18 {
+  font-size: 18px;
+}
+
+.date-width {
+  width: 105px;
+}
+
+.cell-align-right {
+  text-align: right;
+}
+
+.cell-width-0 {
+  width: 0px;
+}
+
+html, body {
+  height: 100%; /* Asegura que el fondo ocupe toda la altura de la página */
+  margin: 0;
+  padding: 0; 
+  background-size: cover; /* Ajusta la imagen para que cubra todo el fondo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-attachment: fixed; /* Mantiene la imagen fija mientras se desplaza la página */
+}
+
+
+
+
+main {
+  max-height: 100vh; /* Asegura que el contenedor no exceda la altura de la ventana */
+  overflow-y: auto;  /* Permite scroll si es necesario */
+}
+
+.book {
+  width: 71%;
+  height: 101%;
+  perspective: 1000px;
+  margin: 10px auto;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-attachment: scroll; /* Hace que la imagen se desplace con el contenido */
+  opacity: 0.9; /* Ajusta la transparencia de la imagen */
+  color: #000000;
+}
+
+.background-transparent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.background-transparent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.9; /* Ajusta el nivel de transparencia */
+  filter: blur(3px); /* Ajusta el nivel de desenfoque */
+  z-index: -1;
+}
+
+/* Asegúrate de que los elementos internos no se vean afectados */
+.background-transparent * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.boton-limpiar {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+.letranegra{
+  color: #090909;
+  background-color: #000000;
+}
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(248, 200, 158) #ffffff;
+}
+
+/* WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
+  border: 3px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #FF4500;
+}
+
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  background-color: #FFA500;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.breadcrumb li {
+  margin-right: 10px;
+}
+
+.breadcrumb li a {
   color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.breadcrumb li a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb li::after {
+  content: ">";
+  margin-left: 10px;
+  color: rgb(248, 200, 158);
+}
+
+.breadcrumb li:last-child::after {
+  content: ""; /* Elimina el ">" en el último elemento */
+}
+.scrollbar{
+  background-color: #FF4500;
+}
+
+.logo-img {
+  width: 90px;  /* Ancho deseado */
+  height: 5px;  /* Mantiene la proporción de la imagen */
+}
+
+.background-footer {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  overflow: hidden;
+  text-align: center;
+
 }
 
 
+
+/* Asegúrate de que los elementos internos no se vean afectados */
+.background-footer * {
+  position: relative;
+  z-index: 1;
+  
+}
+.orange-button {
+  --background: #FFA500; /* Color de fondo naranja */
+  --color: #ffffff; /* Color del texto blanco */
+  --border-radius: 25px; /* Redondeo de los bordes */
+  border: none; /* Eliminar el borde por defecto */
+  padding: 10px 20px; /* Ajustar el tamaño del botón */
+  text-align: center; /* Centrar el texto */
+  display: inline-block; /* Asegurar que el botón se comporte correctamente */
+}
+
+.orange-button {  
+  --background: #FFA500; /* Color de fondo naranja */  
+  --color: #ffffff; /* Color del texto blanco */  
+  --border-radius: 25px; /* Redondeo de los bordes */  
+  border: none; /* Eliminar el borde por defecto */  
+  padding: 10px 20px; /* Ajustar el tamaño del botón */  
+  text-align: center; /* Centrar el texto */  
+  display: inline-block; /* Asegurar que el botón se comporte correctamente */  
+  font-weight: bold; /* Opcional: Negrita para el texto */  
+}  
+
+.orange-button:hover {  
+  --background: #FF8C00; /* Color de fondo más oscuro en hover (opcional) */  
+}
+
+ion-content{
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --padding-end: 20px;
+  --padding-start: 20px;
+}
+ /* Asegúrate de que el contenido esté por encima de la imagen */  
+ ion-content {  
+  position: relative;  
+  z-index: 1; /* Asegura que el contenido esté por encima de la imagen */  
+}  
+.fondo-pagina {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  min-height: 100vh !important;
+}
+
+h1, h2 {
+  font-weight: bold;
+  color: rgb(110, 75, 10); /* Aquí aplicas el color también */
+}
+
+.breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  background-color: #FFA500;
+  padding: 6px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 10;
+  margin-left: 5px; /* Ajusta el valor para moverlo más hacia la derecha */
+}
+
+.login {
+  --background: transparent; /* Naranja con 50% de transparencia */
+  padding: 20px;
+  border-radius: 15px; 
+}
+
+
+.animated-text {
+  font-size: 24px; /* Ajusta el tamaño del texto */
+  animation: slideConstant 3s linear infinite; /* Animación continua */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  font-size: 1rem; /* Tamaño del texto */
+  color: #ff9d00; /* Color del texto */
+  text-align: center; /* Alineación del texto */
+  text-shadow: 
+    0 0 10px #000000, /* Primer nivel de sombra (más cercano al texto) */
+    0 0 20px #000000, /* Segundo nivel de sombra */
+    0 0 30px #000000, /* Tercer nivel de sombra */
+
+}
+
+/* Definir la animación continua con disolución gradual */
+@keyframes slideConstant {
+  0% {
+    transform: translateX(-10%); /* Inicia fuera de la vista desde la derecha */
+    opacity: 0; /* Comienza disuelto */
+  }
+  25% {
+    opacity: 1; /* Aparece completamente al aproximarse al centro */
+  }
+  75% {
+    opacity: 1; /* Mantiene su claridad en el centro */
+  }
+  100% {
+    transform: translateX(80%); /* Sale completamente por la izquierda */
+    opacity: 0; /* Desaparece gradualmente */
+  }
+
+}

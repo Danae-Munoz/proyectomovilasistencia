@@ -6,11 +6,12 @@ import { IonicModule } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { Usuario } from 'src/app/model/usuario';
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-correcto',
   templateUrl: 'correcto.page.html',
   styleUrls: ['correcto.page.scss'],
-  imports: [IonicModule, CommonModule, FormsModule],
+  imports: [IonicModule, CommonModule, FormsModule,  TranslateModule],
   standalone: true,
 })
 export class CorrectoPage implements OnInit {

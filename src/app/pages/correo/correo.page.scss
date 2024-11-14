@@ -1,3 +1,39 @@
+
+
+ion-title {
+  text-align: center;
+}
+
+ion-card-content.login {
+  margin-top: 80px;
+  --background: transparent; /* Naranja con 50% de transparencia */
+  background-color: rgba(255, 154, 53, 0.705); /* Fondo semi-transparente */
+  padding: 20px;
+  border-radius: 15px; 
+}
+
+ion-button {
+  width: 100%;
+}
+
+/* Animación de tarjeta */
+.ion-fade-in-up {
+  animation: fadeinup 1s ease-in-out;
+}
+
+@keyframes fadeinup {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
 /* Asegúrate de que el logo esté alineado a la izquierda */
 .logo {
   width: 100px; /* Ajusta el tamaño del logo según tus necesidades */
@@ -320,6 +356,13 @@ h1, h2 {
   font-size: 24px; /* Ajusta el tamaño del texto */
   animation: slideConstant 3s linear infinite; /* Animación continua */
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  font-size: 1rem; /* Tamaño del texto */
+  color: #ff9d00; /* Color del texto */
+  text-align: center; /* Alineación del texto */
+  text-shadow: 
+    0 0 10px #000000, /* Primer nivel de sombra (más cercano al texto) */
+    0 0 20px #000000, /* Segundo nivel de sombra */
+    0 0 30px #000000, /* Tercer nivel de sombra */
 }
 
 /* Definir la animación continua con disolución gradual */
@@ -338,5 +381,6 @@ h1, h2 {
     transform: translateX(80%); /* Sale completamente por la izquierda */
     opacity: 0; /* Desaparece gradualmente */
   }
+
 }
 

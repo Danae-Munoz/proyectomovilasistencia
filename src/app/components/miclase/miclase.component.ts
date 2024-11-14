@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/model/usuario';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { IonContent } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-miclase',

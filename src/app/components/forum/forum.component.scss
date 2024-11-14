@@ -1,23 +1,53 @@
 .tituloPrincipal {
   font-size: 1em;
-  color: darkblue;
+  color: rgb(0, 0, 0);
   font-weight: bold;
-  text-shadow: darkgray;
+  text-shadow: rgb(0, 0, 0);
+  font-size: small !important;
 }
+p{
+  font-size: 18px !important;
+  color: rgb(0, 0, 0) !important;
+  font-weight: bolder;
 
+}
+h1, h2{
+  font-weight: bold;
+  color: rgb(111, 76, 9); /* Aquí aplicas el color también */
+}
+h3 {
+  font-weight: bold;
+  color: rgb(0, 0, 0); /* Aquí aplicas el color también */
+}
 .publicacionSeleccionada  {
   font-size: small !important;
-  color: darkgreen !important;
+  color: rgb(0, 0, 0) !important;
   font-weight: bolder;
 }
+ion-card{
+  --background: transparent;
+  background-color: rgba(255, 154, 53, 0.705); /* Fondo semi-transparente */
+  padding: 10px;
+  border-radius: 15px;
+}
+ion-list{
+   --background: transparent;
+  background-color: rgba(255, 154, 53, 0.705); /* Fondo semi-transparente */
+  padding: 10px;
+  border-radius: 15px;
+}
+ion-item{
+  --background: transparent;
+  background-color: rgba(255, 255, 255, 0.705); /* Fondo semi-transparente */
+  border-radius: 15px;
 
-h6 {
-  color: darkgreen;
 }
 
+
 h4 {
-  color: darkblue;
   font-weight: bold;
+  color: rgb(111, 76, 9); /* Aquí aplicas el color también */
+  font-size: 25px !important;
 }
 
 .sin-bordes {
@@ -56,3 +86,21 @@ h4 {
 ion-modal {
   --height: auto;
 }
+
+
+// ion-card {
+//   margin-top: 80px;
+//   --background: transparent;
+//   background-color: rgba(255, 154, 53, 0.705); /* Fondo semi-transparente */
+//   padding: 20px;
+//   border-radius: 15px;
+// }
+
+// ion-card-content {
+//   padding: 20px;
+//   border-radius: 15px;
+// }
+
+// ion-card-content.login {
+//   margin-top: 80px;
+// }

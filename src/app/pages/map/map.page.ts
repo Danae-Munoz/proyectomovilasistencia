@@ -9,6 +9,8 @@ import { GeoService } from 'src/app/services/geo.service';
 import * as L from 'leaflet'; // Importamos Leaflet
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { logOutOutline, qrCodeOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-map',
@@ -34,8 +36,9 @@ export class MapPage implements OnInit {
     private geo: GeoService, 
     private http: HttpClient,
   private router: Router) { 
-
+    addIcons({ logOutOutline, qrCodeOutline });
   }
+
 
   ngOnInit() {
     this.loadMap();

@@ -1,16 +1,20 @@
-<ion-header>
-  <ion-toolbar class="transparent-bg">
+<ion-header >  
+  <ion-toolbar class="transparent-bg">  
     <ion-row>
-      <ion-col size="12">
-        <br>
-        <ion-button expand="block" class="ion-margin-top"  (click)="volverAlInicio()"> Volver al Inicio </ion-button>
-      </ion-col>
-    </ion-row> 
-    
-   </ion-toolbar>
+      <ion-col size-md="3">  
+        <ion-img src="/assets/images/duoc_transp.png" style="width: 120px; height: auto; margin-left: 10px;"></ion-img>  
+      </ion-col>  
+      <ion-col size-md="6" class="center-text">  
+        <div class=" animated-text" style="font-size: 30px;">{{'AppName' | translate}} </div>  
+      </ion-col>  
+      <ion-col size-md="3"></ion-col>  
+    </ion-row>
+   
+  </ion-toolbar>  
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <img src="/assets/images/IMG_20240405_141450.jpg" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; WIDTH:100%; height: 100%;">
 
   <!-- El div con id "mapId" será donde se mostrará el mapa -->
   <div id="mapId" style="height: 100%;"></div>
@@ -38,5 +42,8 @@
       <br>
       {{ distance }}
     </div>
+    <ion-button expand="block" class="ion-margin-top"  (click)="volverAlInicio()"> Volver al Inicio <ion-icon name="log-out-outline" color="light"></ion-icon></ion-button>
+    
   </ion-toolbar>
+
 </ion-footer>
