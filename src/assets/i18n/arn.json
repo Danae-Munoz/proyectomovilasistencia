@@ -19,6 +19,7 @@
     "Login.Button.Signin": "Trawünme",
     "Login.Button.ForgotPassword": "Ñi rakinmapu elañmafi",
     "Login.Button.DarkMode": "Pewma külen müleyin",
+    "Login.Button.Tema": "mülen",
     "Login.Placeholder.Cuenta": "Eymi mülen teu cuenta",
     
 
@@ -70,5 +71,7 @@
     "ThemePage.Form.DescriptionLabel": "Püllün",
     "ThemePage.Form.DescriptionPlaceholder": "Eymi mülen ta püllün...",
     "ThemePage.Form.ToggleLabel": "Külfünon notificaciones",
-    "ThemePage.Form.CheckboxLabel": "Amun nien küme alka müleyfi"
+    "ThemePage.Form.CheckboxLabel": "Amun nien küme alka müleyfi",
+
+    "Recuperar.Form.recuperar": "Amun nien küme alka müleyfi"
 }

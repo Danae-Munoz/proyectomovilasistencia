@@ -1,5 +1,5 @@
 {
-    "AppName": "Attendance Duoc",
+    "AppName": "Asistencia Duoc",
     "AuthorText": "Developed by:",
     "Author": "",
     "Language": "Language",
@@ -19,6 +19,7 @@
     "Login.Button.Signin": "Sign Up",
     "Login.Button.ForgotPassword": "Forgot my password",
     "Login.Button.DarkMode": "Dark Mode",
+    "Login.Button.Tema": "Theme",
     "Login.Placeholder.Cuenta": "Enter your account here",
 
     "WelcomePage.Title.Wellcome": "Welcome!",
@@ -69,5 +70,8 @@
     "ThemePage.Form.DescriptionLabel": "Description",
     "ThemePage.Form.DescriptionPlaceholder": "Write a description here...",
     "ThemePage.Form.ToggleLabel": "Enable notifications",
-    "ThemePage.Form.CheckboxLabel": "I accept the terms"
+    "ThemePage.Form.CheckboxLabel": "I accept the terms",
+
+    "Recuperar.Form.recuperar": "Recover your password"
+
 }
