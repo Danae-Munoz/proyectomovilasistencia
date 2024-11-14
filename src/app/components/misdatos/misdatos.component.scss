@@ -31,3 +31,10 @@ ion-item{
     0 0 20px #000000, /* Segundo nivel de sombra */
     0 0 30px #000000, /* Tercer nivel de sombra */
 }
+.password-icon {
+  position: absolute;
+  right: 16px; /* Ajusta según necesites */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}

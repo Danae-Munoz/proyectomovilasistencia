@@ -1,24 +1,22 @@
 <ion-content [fullscreen]="true">
   
-
-  
     <img class="background-image" src="assets/images/IMG_20230310_082210.jpg">
     <h2 class="ion-text-center">Mis Datos: {{ usuario.firstName }} {{ usuario.lastName }}</h2>
 
   <ion-card class="ion-text-center">
     <ion-item><ion-input label="Cuenta" labelPlacement="floating" [(ngModel)]="usuario.userName"></ion-input></ion-item>
     <br>
+    <ion-item><ion-input label="Nombre usuario" labelPlacement="floating" [(ngModel)]="usuario.firstName"></ion-input></ion-item>
+    <br>
+    <ion-item><ion-input label="Apellido" labelPlacement="floating" [(ngModel)]="usuario.lastName"></ion-input></ion-item>
+    <br>
     <ion-item><ion-input label="Correo" labelPlacement="floating" [(ngModel)]="usuario.email"></ion-input></ion-item>
     <br>
-    <ion-item><ion-input label="Contraseña" labelPlacement="floating" [(ngModel)]="usuario.password"></ion-input></ion-item>
+    <ion-item><ion-input label="Direccion" labelPlacement="floating" [(ngModel)]="usuario.address"></ion-input></ion-item>
     <br>
     <ion-item><ion-input label="Pregunta secreta" labelPlacement="floating" [(ngModel)]="usuario.secretQuestion"></ion-input></ion-item>
     <br>
     <ion-item><ion-input label="Respuesta secreta" labelPlacement="floating" [(ngModel)]="usuario.secretAnswer"></ion-input></ion-item>
-    <br>
-    <ion-item><ion-input label="Nombre usuario" labelPlacement="floating" [(ngModel)]="usuario.firstName"></ion-input></ion-item>
-    <br>
-    <ion-item><ion-input label="Apellido" labelPlacement="floating" [(ngModel)]="usuario.lastName"></ion-input></ion-item>
     <br>
     <ion-item class="font-size-12">
       <ion-select [(ngModel)]="usuario.educationalLevel.id" (ionChange)="actualizarNivelEducacional($event)" label="Educación" position="floating">
@@ -29,15 +27,44 @@
     </ion-item>
     <br>
     <ion-item>
-      <app-date-picker 
-          [(ngModel)]="usuario.dateOfBirth"
-          (ionChange)="onFechaNacimientoChange($event)"
-          label="Nacimiento"
-          labelPlacement="floating">
-      </app-date-picker>
-    </ion-item>
+      <table>  
+        <tr>  
+          <td class="font-size-12" style="color:#000000;">Nacimiento</td> 
+          <br> 
+          <td class="cell-align-right">  
+            <input matInput [matDatepicker]="dateOfBirth"  
+              [(ngModel)]="usuario.dateOfBirth"  
+              placeholder="dd/mm/yyyy"  
+              class="date-width">  
+          </td>  
+          <td class="cell-width-0"  >  
+            <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>  
+            <mat-datepicker #dateOfBirth></mat-datepicker>  
+          </td>  
+        </tr>  
+      </table>  
+  </ion-item>
+  <br>
+  <ion-item class="margin-bottom-6 float-right-landscape">
+    <ion-input 
+      label="{{ 'Login.Label.Password' | translate }}"
+      labelPlacement="floating"
+      [(ngModel)]="usuario.password" 
+      [type]="showPassword ? 'text' : 'password'"
+      placeholder="{{ 'Login.Placeholder.Password' | translate }}">
+    </ion-input>
+    <ion-icon name="eye" color="light" style="font-size: 16px;"></ion-icon>
+    <ion-icon 
+      name="{{ showPassword ? 'eye-off' : 'eye' }}" 
+      [style.color]="showPassword ? 'red' : 'green'"
+      [style.fontSize]="'24px'" 
+      (click)="togglePasswordVisibility()"
+      class="password-icon">
+    </ion-icon>
+  </ion-item>
+
+  
     <br>
-    <ion-item><ion-input label="Direccion" labelPlacement="floating" [(ngModel)]="usuario.address"></ion-input></ion-item>
   </ion-card>
   <ion-button 
   (click)="guardarUsuario()" 

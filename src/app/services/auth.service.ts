@@ -14,7 +14,7 @@ export class AuthService {
 
   storageAuthUserKey = 'AUTHENTICATED_USER';
   keyUsuario = 'USUARIO_AUTENTICADO';
-  usuarioAutenticado = new BehaviorSubject<Usuario | null>(null);
+  usuarioAutenticado = new BehaviorSubject<User | null>(null);
   authUser = new BehaviorSubject<User | null>(null);
   isFirstLogin = new BehaviorSubject<boolean>(false);
   storageQrCodeKey = 'QR_CODE';
@@ -39,6 +39,11 @@ export class AuthService {
       showAlertError('AuthService.isAuthenticated', error);
       return false;
     }
+  }
+  async leerUsuarioAutenticado(): Promise<User | undefined> {
+    const user = await this.storage.get(this.storageAuthUserKey).then(user => user as User);
+    this.usuarioAutenticado.next(user);
+    return user;
   }
 
   async readAuthUser(): Promise<User | null> {
