@@ -29,8 +29,8 @@
     "HomePage.Button.Dinosaur": "Dinosaurio",
     "HomePage.Button.Forum": "Foro",
     "HomePage.Button.Map": "Mapa",
-    "HomePage.Button.Miclase": "Miclase",
-    "HomePage.Button.Misdatos": "Misdatos",
+    "HomePage.Button.Miclase": "Mi clase",
+    "HomePage.Button.Misdatos": "Mis datos",
     "HomePage.Button.Detener": "Detener escaneo QR",
 
     "ThemePage.Label.ColorTheme": "Tema de color:",
@@ -72,5 +72,50 @@
     "ThemePage.Form.ToggleLabel": "Activar notificaciones",
     "ThemePage.Form.CheckboxLabel": "Acepto los términos",
 
-    "Recuperar.Form.recuperar": "Recuperar tu contraseña"
+    "Recuperar.Form.Recuperar": "Recuperar tu contraseña",
+    "Recuperar.Form.Paso1": "Paso 1",
+    "Recuperar.Form.Ingresa": "Ingresa tu correo",
+    "Recuperar.Form.Correo": "Correo:",
+    "Recuperar.Form.Contraseña": "Recuperar Contraseña",
+    "Recuperar.Form.Volver": "Volver al Inicio",
+    "Recuperar.Form.Paso2": "Paso 2",
+    "Recuperar.Form.Responde": "Responde la pregunta:",
+    "Recuperar.Form.Usuario": "Usuario:",
+    "Recuperar.Form.Respuesta": "Ingrese Respuesta: ",
+    "Recuperar.Form.Correcto": "CORRECTO!",
+    "Recuperar.Form.Es": "Su contraseña es: ",
+    "Recuperar.Form.Inicio": "Ir al inicio",
+    "Recuperar.Form.Incorrecto": "Respuesta Incorrecta",
+    "Recuperar.Form.Sorry": "Lo sentimos pero los datos ingresados no son correctos",
+
+    "Datos.From.Datos": "Mis Datos, ",
+    "Datos.From.Cuenta": "Cuenta",
+    "Datos.From.User": "Nombre Usuario",
+    "Datos.From.Apellido": "Apellido",
+    "Datos.From.Correo": "Correo",
+    "Datos.From.Direccion": "Direccion",
+    "Datos.From.Pregunta": "Pregunta Secreta",
+    "Datos.From.Respuesta": "Respuesta Secreta",
+    "Datos.From.Educacion": "Educacion",
+    "Datos.From.Nacimiento": "Nacimiento",
+    "Datos.From.Pass": "Contraseña",
+    "Datos.From.Actualizar": "Actualizar Datos",
+
+    "Footer.From.Gestion": "Gestión de Publicaciones",
+    "Footer.From.Titulo": "Titulo",
+    "Footer.From.Ingresa": "Ingresa el título de la publicación",
+    "Footer.From.Desc": "Descripción ",
+    "Footer.From.Escribe": "Escribe el contenido de la publicación",
+    "Footer.From.Limpiar": "Limpiar",
+    "Footer.From.Guardar": "Guardar",
+    "Footer.From.Reciente": "Publicaciones Recientes",
+    "Footer.From.Public": "Publicacion #",
+
+    "Clase.From.Necesitas": "Necesitas escanear un codigo Qr",
+    "Map.From.Aqui": "Aquí",
+    "Map.From.Ruta": "Ruta"
+    
+    
+    
+    
 }

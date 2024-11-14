@@ -29,10 +29,10 @@
     "HomePage.Button.Scan": "Wütran",
     "HomePage.Button.Dinosaur": "Tüfachi Chod",
     "HomePage.Button.Forum": "Trapu",
-    "HomePage.Button.Map": "Map",
-    "HomePage.Button.Miclase": "Miclase",
-    "HomePage.Button.Misdatos": "Misdatos",
-    "HomePage.Button.Detener": "Stop QR scanning",
+    "HomePage.Button.Map": "Iñmapu",
+    "HomePage.Button.Miclase": "Ñi küla",
+    "HomePage.Button.Misdatos": "Ñi pu peñi",
+    "HomePage.Button.Detener": "Ñamün ñi QR üngün",
 
     "ThemePage.Label.ColorTheme": "Dugün de kolor:",
     "ThemePage.Color.Light": "Külfün",
@@ -73,5 +73,53 @@
     "ThemePage.Form.ToggleLabel": "Külfünon notificaciones",
     "ThemePage.Form.CheckboxLabel": "Amun nien küme alka müleyfi",
 
-    "Recuperar.Form.recuperar": "Amun nien küme alka müleyfi"
+    "Recuperar.Form.Recuperar": "Wirintukun ñi rakiduam ñi güxam",
+    "Recuperar.Form.Paso1": "Trawun 1",
+    "Recuperar.Form.Ingresa": "Kintu müten küpa malün",
+    "Recuperar.Form.Correo": "Küpa malün:",
+    "Recuperar.Form.Contraseña": "Wirintukun güxam",
+    "Recuperar.Form.Volver": "Weñefe tüfachi müten",
+    "Recuperar.Form.Paso2": "Trawun 2",
+    "Recuperar.Form.Responde": "Feyentun duam:",
+    "Recuperar.Form.Usuario": "Felekufe:",
+    "Recuperar.Form.Respuesta": "Eymi feyentun:",
+    "Recuperar.Form.Correcto": "PETU!",
+    "Recuperar.Form.Es": "Ñi güxam tüfachi:",
+    "Recuperar.Form.Inicio": "Weñefe müten",
+    "Recuperar.Form.Incorrecto": "Feyentun meu amunge",
+    "Recuperar.Form.Sorry": "May eymün; feyentun ka eymi ñi amunge nor küla.",
+
+
+    "Datos.From.Datos": "Ñamkülen ñi rakiduam",
+    "Datos.From.Cuenta": "Kuenta",
+    "Datos.From.User": "Dungu felekufe",
+    "Datos.From.Apellido": "Weñu",
+    "Datos.From.Correo": "Küpa malün",
+    "Datos.From.Direccion": "Rakin mapu",
+    "Datos.From.Pregunta": "Ñi rakiduam duam",
+    "Datos.From.Respuesta": "Feyentun ñi duam",
+    "Datos.From.Educacion": "Kimün",
+    "Datos.From.Nacimiento": "Tayül",
+    "Datos.From.Pass": "Rakiduam ñi güxam",
+    "Datos.From.Actualizar": "Ñamkülen",
+
+    "Footer.From.Gestion": "Küpal Weiñ",
+    "Footer.From.Titulo": "Tüfachi",
+    "Footer.From.Ingresa": "Eymi tüfa küpal küla nütram",
+    "Footer.From.Desc": "Tüfachi Inarimn",
+    "Footer.From.Escribe": "Eymi küpal küla nütram",
+    "Footer.From.Limpiar": "Pewmayafiel",
+    "Footer.From.Guardar": "Witral",
+    "Footer.From.Reciente": "We Newen Küpal",
+    "Footer.From.Public": "Küpal #",
+
+    "Clase.From.Necesitas": "Ñi ñamün üngün QR",
+
+    "Map.From.Aqui": "Che",
+    "Map.From.Ruta": "Ñamku"
+
+
+
+
+    
 }

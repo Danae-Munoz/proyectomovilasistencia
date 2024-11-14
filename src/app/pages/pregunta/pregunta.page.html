@@ -15,25 +15,25 @@
 
 <ion-content [fullscreen]="true">
   <img src="/assets/images/IMG_20240405_141450.jpg" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; WIDTH:100%; height: 100%;">
-  <ion-title style="color: rgb(101, 67, 22); " class="text-center">{{'Recuperar.Form.recuperar' | translate}}</ion-title>
+  <ion-title style="color: rgb(101, 67, 22); " class="text-center">{{'Recuperar.Form.Recuperar' | translate}}</ion-title>
   <div class="centrado-vertical">
     <ion-card-content class="login ion-fade-in-up ion-animatable">
       <br>
       <ion-title>
-        <h2>Paso 2:</h2>
-        <h2>Responde la pregunta</h2>
-        <ion-text class="ion-text-center"><h6>Usuario: {{ nombre }} {{apellido}}</h6></ion-text>
+        <h2>{{'Recuperar.Form.Paso2' | translate}}</h2>
+        <h2>{{'Recuperar.Form.Responde' | translate}}</h2>
+        <ion-text class="ion-text-center"><h6>{{'Recuperar.Form.Usuario' | translate}} {{ nombre }} {{apellido}}</h6></ion-text>
         <ion-text class="ion-text-center"><h6>{{preguntaSecreta}}</h6></ion-text> 
       </ion-title>
       <ion-item class="ion-margin-top">
-        <ion-input label="Ingrese Respuesta: " labelplacement="floating" [(ngModel)]="respuestaSecreta"></ion-input>
+        <ion-input label="{{'Recuperar.Form.Respuesta' | translate}} " labelplacement="floating" [(ngModel)]="respuestaSecreta"></ion-input>
       </ion-item>
     
       <ion-row>
         <ion-col size="12">
           <br>
-          <ion-button shape="block" (click)="recuperarContrasena()">Recuperar Contraseña</ion-button>
-          <ion-button expand="block" class="ion-margin-top"  (click)="volverAlInicio()"> Volver al Inicio </ion-button>
+          <ion-button shape="block" (click)="recuperarContrasena()">{{'Recuperar.Form.Contraseña' | translate}}</ion-button>
+          <ion-button expand="block" class="ion-margin-top"  (click)="volverAlInicio()"> {{'Recuperar.Form.Volver' | translate}} </ion-button>
         </ion-col>
       </ion-row> 
     </ion-card-content>

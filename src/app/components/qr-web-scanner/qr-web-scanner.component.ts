@@ -4,13 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { EventEmitter } from '@angular/core';
 import jsQR, { QRCode } from 'jsqr';
+import { TranslateModule } from '@ngx-translate/core';
+import { User } from 'src/app/model/user';
+import { AuthService } from 'src/app/services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-qrwebscanner',
   templateUrl: './qr-web-scanner.component.html',
   styleUrls: ['./qr-web-scanner.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule],
+  imports: [IonicModule, CommonModule, FormsModule, TranslateModule],
 })
 export class QrWebScannerComponent implements OnDestroy {
 
@@ -21,8 +25,10 @@ export class QrWebScannerComponent implements OnDestroy {
 
   qrData: string = '';
   mediaStream: MediaStream | null = null; // Almacena el flujo de medios
+  user = new User();
+  private authUserSubs!: Subscription;
 
-  constructor() 
+  constructor(private auth: AuthService) 
   { 
     this.startQrScanningForWeb();
   }
@@ -73,6 +79,7 @@ export class QrWebScannerComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.stopCamera();
+    if (this.authUserSubs) this.authUserSubs.unsubscribe();
   }
 
 
@@ -82,5 +89,9 @@ export class QrWebScannerComponent implements OnDestroy {
       this.mediaStream = null; // Limpia el flujo de medios
     }
   }
+  ngOnInit() {
+    this.authUserSubs = this.auth.authUser.subscribe(user => this.user = user?? new User());
+  }
+  
 
 }

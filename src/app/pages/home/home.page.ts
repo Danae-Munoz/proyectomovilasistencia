@@ -50,7 +50,7 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
-    this.changeComponent('welcome');
+    this.changeComponent('qrwebscanner');
   }
 
   async headerClick(button: string) {

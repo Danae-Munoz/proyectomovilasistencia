@@ -4,24 +4,24 @@
   <!-- Formulario para crear/editar publicaciones -->
   <ion-card>
     <ion-card-header>
-      <h3 style="color: rgb(111, 76, 9);">Gestión de Publicaciones</h3>
+      <h3 style="color: rgb(111, 76, 9);">{{'Footer.From.Gestion' | translate}}</h3>
       <ion-card-subtitle>{{ selectedPostText }}</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
       <ion-item>
-        <ion-label position="floating" color="secondary" style="font-size: small !important;">Título</ion-label>
-        <ion-input [(ngModel)]="post.title" placeholder="Ingresa el título de la publicación"></ion-input>
+        <ion-label position="floating" color="secondary" style="font-size: small !important;">{{'Footer.From.Titulo' | translate}}</ion-label>
+        <ion-input [(ngModel)]="post.title" placeholder="{{'Footer.From.Ingresa' | translate}}"></ion-input>
       </ion-item>
       <br>
       <ion-item>
-        <ion-label position="floating" color="secondary">Descripción</ion-label>
-        <ion-textarea [(ngModel)]="post.body" placeholder="Escribe el contenido de la publicación"></ion-textarea>
+        <ion-label position="floating" color="secondary">{{'Footer.From.Desc' | translate}}</ion-label>
+        <ion-textarea [(ngModel)]="post.body" placeholder="{{'Footer.From.Escribe' | translate}}"></ion-textarea>
       </ion-item>
 
       <div class="ion-text-center margin-top-6">
-        <ion-button color="medium" shape="round" (click)="cleanPost()">Limpiar</ion-button>
-        <ion-button color="primary" shape="round" (click)="savePost()">
+        <ion-button color="medium" shape="round" (click)="cleanPost()">{{'Footer.From.Limpiar' | translate}}</ion-button>
+        <ion-button  color="primary" shape="round" (click)="savePost()">
           {{ post.id ? 'Actualizar' : 'Guardar' }}
         </ion-button>
       </div>
@@ -31,7 +31,7 @@
 
   <!-- Lista de publicaciones recientes -->
   <ion-card class="sin-bordes">
-    <h3>Publicaciones Recientes</h3>
+    <h3>{{'Footer.From.Reciente' | translate}}</h3>
   </ion-card>
 
   <ion-list>
@@ -40,7 +40,7 @@
     padding: 10px;
     border-radius: 15px;" *ngFor="let post of posts; trackBy: getPostId">
       <ion-card-header>
-        <h6 style="color: black;">(Publicación #{{ post.id }}) {{ post.author }}</h6>
+        <h6 style="color: black;">({{'Footer.From.Public' | translate}}{{ post.id }}) {{ post.author }}</h6>
         <h4 >{{ post.title }}</h4>
       </ion-card-header>
   

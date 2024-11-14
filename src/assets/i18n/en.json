@@ -29,8 +29,8 @@
     "HomePage.Button.Dinosaur": "Dinosaur",
     ".Button.Forum": "Forum",
     "HomePage.Button.Map": "Map",
-    "HomePage.Button.Miclase": "Myclass",
-    "HomePage.Button.Misdatos": "Mydata",
+    "HomePage.Button.Miclase": "My class",
+    "HomePage.Button.Misdatos": "My data",
     "HomePage.Button.Detener": "Stop QR scanning",
 
     "ThemePage.Label.ColorTheme": "Color Theme:",
@@ -72,6 +72,52 @@
     "ThemePage.Form.ToggleLabel": "Enable notifications",
     "ThemePage.Form.CheckboxLabel": "I accept the terms",
 
-    "Recuperar.Form.recuperar": "Recover your password"
+    "Recuperar.Form.Recuperar": "Recover your password",
+    "Recuperar.Form.Paso1": "Step 1",
+    "Recuperar.Form.Ingresa": "Enter your email",
+    "Recuperar.Form.Correo": "email:",
+    "Recuperar.Form.Contraseña": "Recover Password",
+    "Recuperar.Form.Volver": "Return to login",
+    "Recuperar.Form.Paso2": "Step 2",
+    "Recuperar.Form.Responde": "Answer the question:",
+    "Recuperar.Form.Usuario": "User:",
+    "Recuperar.Form.Respuesta": "Enter Response: ",
+    "Recuperar.Form.Correcto": "CORRECT!",
+    "Recuperar.Form.Es": "Your password is: ",
+    "Recuperar.Form.Inicio": "Go to login",
+    "Recuperar.Form.Incorrecto": "Incorrect Answer",
+    "Recuperar.Form.Sorry": "We are sorry but the data entered is not correct",
+
+    "Datos.From.Datos": "My Data, ",
+    "Datos.From.Cuenta": "Account",
+    "Datos.From.User": "User Name",
+    "Datos.From.Apellido": "Surname",
+    "Datos.From.Correo": "E-Mail",
+    "Datos.From.Direccion": "Address",
+    "Datos.From.Pregunta": "Secret Question",
+    "Datos.From.Respuesta": "Secret Answer",
+    "Datos.From.Educacion": "Education",
+    "Datos.From.Nacimiento": "Birth",
+    "Datos.From.Pass": "Password",
+    "Datos.From.Actualizar": "Update data",
+
+    "Footer.From.Gestion": "Publication Management",
+    "Footer.From.Titulo": "Title",
+    "Footer.From.Ingresa": "Enter the title of the publication",
+    "Footer.From.Desc": "Description",
+    "Footer.From.Escribe": "Write the content of the publication",
+    "Footer.From.Limpiar": "Clear",
+    "Footer.From.Guardar": "Save",
+    "Footer.From.Reciente": "Recent Publications",
+    "Footer.From.Public": "Publication #",
+
+    "Clase.From.Necesitas": "You need to scan a QR code",
+
+    "Map.From.Aqui": "Here",
+    "Map.From.Ruta": "Route"
+
+
+
+
 
 }

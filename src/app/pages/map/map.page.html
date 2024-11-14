@@ -30,19 +30,19 @@
 
     <ion-button shape="round" color="secondary" size="small"
         (click)="goToMyPosition()">
-      Aquí
+        {{'Map.From.Aqui' | translate}}
     </ion-button>
 
     <ion-button shape="round" color="secondary" size="small"
         (click)="showRouteToDuoc()">
-      Ruta
+        {{'Map.From.Ruta' | translate}}
     </ion-button>
 
     <div *ngIf="distance">
       <br>
-      {{ distance }}
+      {{ distance }} 
     </div>
-    <ion-button expand="block" class="ion-margin-top"  (click)="volverAlInicio()"> Volver al Inicio <ion-icon name="log-out-outline" color="light"></ion-icon></ion-button>
+    <ion-button expand="block" class="ion-margin-top"  (click)="volverAlInicio()">{{'Recuperar.Form.Volver' | translate}}<ion-icon name="log-out-outline" color="light"></ion-icon></ion-button>
     
   </ion-toolbar>
 
