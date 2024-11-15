@@ -5,47 +5,49 @@
   <ion-grid fixed *ngIf="dino" class="dino-content">
     <ion-row>
       <ion-col size="12">
+        <h2>{{'HomePage.Button.Miclase' | translate}}</h2>
         <ion-card>
+          
           <ion-card-header>
-            <ion-card-title>Detalles de la Asignatura</ion-card-title>
+            <ion-card-title>{{'Miclase.From.Detalles' | translate}}</ion-card-title>
           </ion-card-header>
-          <ion-card-content>
-            <table style="width: 100%; border-collapse: collapse;">
+          <ion-card-content style="color: black;" >
+            <table style="width: 100%; border-collapse: collapse; ">
               <tr>
-                <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Sede</th>
-                <td style="padding: 8px; border: 1px solid #ddd;">{{ dino.sede }}</td>
+                <th style="text-align: left; padding: 8px; border: 2px solid #000000;">{{'Miclase.From.Sede' | translate}}</th>
+                <td style="padding: 8px; border: 2px solid #000000;">{{ dino.sede }}</td>
               </tr>
               <tr>
-                <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Asignatura</th>
-                <td style="padding: 8px; border: 1px solid #ddd;">{{ dino.idAsignatura }}</td>
+                <th style="text-align: left; padding: 8px; border: 2px solid #000000;">{{'Miclase.From.Asignatura' | translate}}</th>
+                <td style="padding: 8px; border: 2px solid #000000;">{{ dino.idAsignatura }}</td>
               </tr>
               <tr>
-                <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Sección</th>
-                <td style="padding: 8px; border: 1px solid #ddd;">{{ dino.seccion }}</td>
+                <th style="text-align: left; padding: 8px; border: 2px solid #000000;">{{'Miclase.From.Seccion' | translate}}</th>
+                <td style="padding: 8px; border: 2px solid #000000;">{{ dino.seccion }}</td>
               </tr>
               <tr>
-                <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Nombre Asignatura</th>
-                <td style="padding: 8px; border: 1px solid #ddd;">{{ dino.nombreAsignatura }}</td>
+                <th style="text-align: left; padding: 8px; border: 2px solid #000000;">{{'Miclase.From.Nombre' | translate}}</th>
+                <td style="padding: 8px; border: 2px solid #000000;">{{ dino.nombreAsignatura }}</td>
               </tr>
               <tr>
-                <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Día</th>
-                <td style="padding: 8px; border: 1px solid #ddd;">{{ dino.dia }}</td>
+                <th style="text-align: left; padding: 8px; border: 2px solid #000000;">{{'Miclase.From.Dia' | translate}}</th>
+                <td style="padding: 8px; border: 2px solid #000000;">{{ dino.dia }}</td>
               </tr>
               <tr>
-                <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Bloque Inicio</th>
-                <td style="padding: 8px; border: 1px solid #ddd;">{{ dino.bloqueInicio }}</td>
+                <th style="text-align: left; padding: 8px; border: 2px solid #000000;">{{'Miclase.From.Inicio' | translate}}</th>
+                <td style="padding: 8px; border: 2px solid #000000;">{{ dino.bloqueInicio }}</td>
               </tr>
               <tr>
-                <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Bloque Termino</th>
-                <td style="padding: 8px; border: 1px solid #ddd;">{{ dino.bloqueTermino }}</td>
+                <th style="text-align: left; padding: 8px; border: 2px solid #000000;">{{'Miclase.From.Termino' | translate}}</th>
+                <td style="padding: 8px; border: 2px solid #000000;">{{ dino.bloqueTermino }}</td>
               </tr>
               <tr>
-                <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Hora Inicio</th>
-                <td style="padding: 8px; border: 1px solid #ddd;">{{ dino.horaInicio }}</td>
+                <th style="text-align: left; padding: 8px; border: 2px solid #000000;">{{'Miclase.From.Hora' | translate}}</th>
+                <td style="padding: 8px; border: 2px solid #000000;">{{ dino.horaInicio }}</td>
               </tr>
               <tr>
-                <th style="text-align: left; padding: 8px; border: 1px solid #ddd;">Hora Termino</th>
-                <td style="padding: 8px; border: 1px solid #ddd;">{{ dino.horaFin }}</td>
+                <th style="text-align: left; padding: 8px; border: 2px solid #000000;">{{'Miclase.From.Horat' | translate}}</th>
+                <td style="padding: 8px; border: 2px solid #000000;">{{ dino.horaFin }}</td>
               </tr>
             </table>
           </ion-card-content>

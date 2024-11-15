@@ -113,7 +113,18 @@
 
     "Clase.From.Necesitas": "Necesitas escanear un codigo Qr",
     "Map.From.Aqui": "Aquí",
-    "Map.From.Ruta": "Ruta"
+    "Map.From.Ruta": "Ruta",
+
+    "Miclase.From.Detalles": "Detalles de la Asignatura",
+    "Miclase.From.Sede": "Sede",
+    "Miclase.From.Asignatura": "Asignatura",
+    "Miclase.From.Seccion": "Sección",
+    "Miclase.From.Nombre": "Nombre Asignatura",
+    "Miclase.From.Dia": "Día",
+    "Miclase.From.Inicio": "Bloque Inicio",
+    "Miclase.From.Termino": "Bloque Termino",
+    "Miclase.From.Hora": "Hora Inicio",
+    "Miclase.From.Horat": "Hora Termino"
     
     
     

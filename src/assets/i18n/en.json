@@ -114,7 +114,19 @@
     "Clase.From.Necesitas": "You need to scan a QR code",
 
     "Map.From.Aqui": "Here",
-    "Map.From.Ruta": "Route"
+    "Map.From.Ruta": "Route",
+
+    "Miclase.From.Detalles": "Subject Details",
+    "Miclase.From.Sede": "Campus",
+    "Miclase.From.Asignatura": "Subject",
+    "Miclase.From.Seccion": "Section",
+    "Miclase.From.Nombre": "Subject Name",
+    "Miclase.From.Dia": "Day",
+    "Miclase.From.Inicio": "Start Block",
+    "Miclase.From.Termino": "End Block",
+    "Miclase.From.Hora": "Start Time",
+    "Miclase.From.Horat": "End Time"
+
 
 
 
