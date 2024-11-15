@@ -51,7 +51,7 @@ Windows:
 
 Nótese que **"cgome"** es el usuario del computador del profesor y allí debes poner el nombre de tu usuario de Windows.
 
-# Instrucciones para programar y ejecutar Angry-Dinosaurs
+# Instrucciones para programar y ejecutar a-Dinosaurs
 ## Paquetes que debes instalar: 
 
 `ng add @angular/material`
