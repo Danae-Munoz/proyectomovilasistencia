@@ -313,6 +313,13 @@ export class DatabaseService {
     await this.leerUsuarios();
   }
 
+  async loadingUsuario(usuario: User): Promise<void> {
+    await this.db.run(this.sqlInsertUpdate, [usuario.userName, usuario.email, usuario.password,
+      usuario.secretQuestion, usuario.secretAnswer, usuario.firstName, usuario.lastName,
+      usuario.educationalLevel.id, usuario.dateOfBirth?.getTime()]);
+    await this.readUsuarios();
+  }
+
   // Cada vez que se ejecute leerUsuarios() la aplicación va a cargar los usuarios desde la base de datos,
   // y por medio de la instrucción "this.listaUsuarios.next(usuarios);" le va a notificar a todos los programas
   // que se subscribieron a la propiedad "listaUsuarios", que la tabla de usuarios se acaba de cargar. De esta
@@ -322,6 +329,11 @@ export class DatabaseService {
   // con la instrucción ".values as Usuario[];". Si la tabla no tiene registros devuelve null.
   async leerUsuarios(): Promise<void> {
     const usuarios: Usuario[]= (await this.db.query('SELECT * FROM USUARIO;')).values as Usuario[];
+    this.listaUsuarios.next(usuarios);
+  }
+
+  async readUsuarios(): Promise<void> {
+    const usuarios: Usuario[]= (await this.db.query('SELECT * FROM USER;')).values as Usuario[];
     this.listaUsuarios.next(usuarios);
   }
 

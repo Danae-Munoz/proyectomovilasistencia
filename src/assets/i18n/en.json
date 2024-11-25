@@ -32,6 +32,7 @@
     "HomePage.Button.Miclase": "My class",
     "HomePage.Button.Misdatos": "My data",
     "HomePage.Button.Detener": "Stop QR scanning",
+    "HomePage.Button.Reg": "Register",
 
     "ThemePage.Label.ColorTheme": "Color Theme:",
     "ThemePage.Color.Light": "Light",

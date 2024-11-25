@@ -69,13 +69,14 @@ export class LoginPage implements ViewWillEnter {
     this.router.navigate(['/map']);
   }
 
-  registerNewUser() {
-
+  registro(){
+    this.router.navigate(['/registrarme']);
   }
 
   passwordRecovery() {
     this.router.navigate(['/correo']);
     
   }
+
 
 }

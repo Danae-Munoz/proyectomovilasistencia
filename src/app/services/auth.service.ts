@@ -168,4 +168,10 @@ export class AuthService {
       return false;
     }
   }
+
+
+  setUsuarioAutenticado(usuario: User) {
+    this.storage.set(this.keyUsuario, usuario);
+    this.usuarioAutenticado.next(usuario);
+  }
 }
