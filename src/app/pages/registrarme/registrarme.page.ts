@@ -25,7 +25,7 @@ export class RegistrarmePage implements OnInit {
   constructor(private authService: AuthService, private bd: DatabaseService, private router: Router) { }
 
   async ngOnInit() {
-    this.authService.usuarioAutenticado.subscribe((usuario) => {
+    this.authService.usuarioAutenticate.subscribe((usuario) => {
       if (usuario !== null) {
         this.usuario = usuario!;
         this.repeticionPassword = usuario!.password;
@@ -54,7 +54,7 @@ export class RegistrarmePage implements OnInit {
       return;
     }
     this.bd.guardarUsuario(this.usuario);
-    this.authService.setUsuarioAutenticado(this.usuario);
+    this.authService.setUsuarioAutenticate(this.usuario);
     showToast('Ha sido registrado correctamente');
 
   }

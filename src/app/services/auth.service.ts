@@ -15,6 +15,7 @@ export class AuthService {
   storageAuthUserKey = 'AUTHENTICATED_USER';
   keyUsuario = 'USUARIO_AUTENTICADO';
   usuarioAutenticado = new BehaviorSubject<User | null>(null);
+  usuarioAutenticate = new BehaviorSubject<Usuario | null>(null);
   authUser = new BehaviorSubject<User | null>(null);
   isFirstLogin = new BehaviorSubject<boolean>(false);
   storageQrCodeKey = 'QR_CODE';
@@ -173,5 +174,10 @@ export class AuthService {
   setUsuarioAutenticado(usuario: User) {
     this.storage.set(this.keyUsuario, usuario);
     this.usuarioAutenticado.next(usuario);
+  }
+
+  setUsuarioAutenticate(usuario: Usuario) {
+    this.storage.set(this.keyUsuario, usuario);
+    this.usuarioAutenticate.next(usuario);
   }
 }
