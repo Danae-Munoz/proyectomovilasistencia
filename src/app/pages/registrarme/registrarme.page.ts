@@ -19,7 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class RegistrarmePage implements OnInit {
 
-  usuario = new User();
+  usuario = new Usuario();
   repeticionPassword = '';
 
   constructor(private authService: AuthService, private bd: DatabaseService, private router: Router) { }
@@ -43,17 +43,17 @@ export class RegistrarmePage implements OnInit {
 
 
   registro(){
-    if (!this.mostrarMensaje('nombre', this.usuario.firstName)) return;
-    if (!this.mostrarMensaje('apellidos', this.usuario.lastName)) return;
-    if (!this.mostrarMensaje('correo', this.usuario.email)) return;
-    if (!this.mostrarMensaje('pregunta secreta', this.usuario.secretQuestion)) return;
-    if (!this.mostrarMensaje('respuesta secreta', this.usuario.secretAnswer)) return;
+    if (!this.mostrarMensaje('nombre', this.usuario.nombre)) return;
+    if (!this.mostrarMensaje('apellidos', this.usuario.apellido)) return;
+    if (!this.mostrarMensaje('correo', this.usuario.correo)) return;
+    if (!this.mostrarMensaje('pregunta secreta', this.usuario.preguntaSecreta)) return;
+    if (!this.mostrarMensaje('respuesta secreta', this.usuario.respuestaSecreta)) return;
     if (!this.mostrarMensaje('contraseña', this.usuario.password)) return;
     if (this.usuario.password !== this.repeticionPassword) {
       showAlertDUOC(`Las contraseñas escritas deben ser iguales.`);
       return;
     }
-    this.bd.loadingUsuario(this.usuario);
+    this.bd.guardarUsuario(this.usuario);
     this.authService.setUsuarioAutenticado(this.usuario);
     showToast('Ha sido registrado correctamente');
 
