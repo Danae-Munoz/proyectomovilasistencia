@@ -37,6 +37,11 @@
       </ion-item>
 
       <ion-item class="input-item">
+        <ion-label position="floating">Dirección</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.address"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-item">
         <ion-label position="floating">Correo</ion-label>
         <ion-input type="text" [(ngModel)]="usuario.email"></ion-input>
       </ion-item>
@@ -50,6 +55,33 @@
         <ion-label position="floating">Respuesta secreta</ion-label>
         <ion-input type="text" [(ngModel)]="usuario.secretAnswer"></ion-input>
       </ion-item>
+
+      <ion-item class="font-size-12">
+        <ion-select [(ngModel)]="usuario.educationalLevel.id" label="{{'Datos.From.Educacion' | translate}}" position="floating">
+          <ion-select-option *ngFor="let nivelEducacional of listaNivelesEducacionales" [value]="nivelEducacional.id">
+            {{nivelEducacional.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <ion-item>
+        <table>  
+          <tr>  
+            <td class="font-size-12" style="color:#000000;">{{'Datos.From.Nacimiento' | translate}}</td> 
+            <br> 
+            <td class="cell-align-right">  
+              <input matInput [matDatepicker]="dateOfBirth"  
+                [(ngModel)]="usuario.dateOfBirth"  
+                placeholder="dd/mm/yyyy"  
+                class="date-width">  
+            </td>  
+            <td class="cell-width-0"  >  
+              <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>  
+              <mat-datepicker #dateOfBirth></mat-datepicker>  
+            </td>  
+          </tr>  
+        </table>  
+    </ion-item>
 
       <ion-item class="input-item">
         <ion-label position="floating">Contraseña</ion-label>

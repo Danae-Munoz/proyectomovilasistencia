@@ -248,6 +248,21 @@ export class DatabaseService {
         return undefined;
     }
 }
+ // Método para verificar si un usuario ya existe por su nombre de usuario
+ async findUsersByUserName(userName: string): Promise<User | undefined> {
+  try {
+      const q = 'SELECT * FROM USER WHERE userName=?;';
+      const rows = (await this.db.query(q, [userName])).values;
+      // Verificar si hay resultados antes de convertir
+      if (rows && rows.length > 0) {
+          return this.rowToUser(rows[0]);
+      }
+      return undefined; // Si no hay resultados, retorna undefined
+  } catch (error) {
+      showAlertError('DataBaseService.findUserByEmail', error);
+      return undefined; // Manejo de errores
+  }
+}
 
 
   async findUserByUserName(userName: string): Promise<User | undefined> {
@@ -271,6 +286,7 @@ export class DatabaseService {
       return undefined;
     }
   }
+  
 
   async leerUsuarioCorreo(email: string): Promise<Usuario | undefined> {
     const usuarios: Usuario[] = (await this.db.query(
