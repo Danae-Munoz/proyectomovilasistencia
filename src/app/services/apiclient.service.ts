@@ -120,3 +120,5 @@ export class APIClientService {
     }
   }
 }
+
+export { Post };
