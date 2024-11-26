@@ -97,6 +97,7 @@ export class DatabaseService {
   private db!: SQLiteDBConnection;
   userList: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   listaUsuarios: BehaviorSubject<Usuario[]> = new BehaviorSubject<Usuario[]>([]);
+  listaUsuario: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   
   constructor(private sqliteService: SQLiteService) { }
 
@@ -333,8 +334,8 @@ export class DatabaseService {
   }
 
   async readUsuarios(): Promise<void> {
-    const usuarios: Usuario[]= (await this.db.query('SELECT * FROM USER;')).values as Usuario[];
-    this.listaUsuarios.next(usuarios);
+    const usuarios: User[]= (await this.db.query('SELECT * FROM USER;')).values as User[];
+    this.listaUsuario.next(usuarios);
   }
 
   // Read del CRUD

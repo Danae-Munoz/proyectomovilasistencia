@@ -172,7 +172,7 @@ export class AuthService {
 
 
   setUsuarioAutenticado(usuario: User) {
-    this.storage.set(this.keyUsuario, usuario);
+    this.storage.set(this.storageAuthUserKey, usuario);
     this.usuarioAutenticado.next(usuario);
   }
 
