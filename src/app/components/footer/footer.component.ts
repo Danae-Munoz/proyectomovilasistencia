@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonFooter, IonToolbar, IonSegment, IonSegmentButton, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { homeOutline, pawOutline, pencilOutline, qrCodeOutline, schoolOutline, gridOutline } from 'ionicons/icons';
+import { homeOutline, pawOutline, pencilOutline, qrCodeOutline, schoolOutline, gridOutline, settingsOutline } from 'ionicons/icons';
 import { ScannerService } from 'src/app/services/scanner.service';
 import { DatabaseService } from 'src/app/services/database.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -15,21 +15,23 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./footer.component.scss'],
   standalone: true,
   imports: [
-      CommonModule    // CGV-Permite usar directivas comunes de Angular
-    , FormsModule     // CGV-Permite usar formularios
-    , TranslateModule // CGV-Permite usar pipe 'translate'
-    , IonFooter, IonToolbar, IonSegment, IonSegmentButton, IonIcon
+    CommonModule,    // CGV-Permite usar directivas comunes de Angular
+    FormsModule,     // CGV-Permite usar formularios
+    TranslateModule, // CGV-Permite usar pipe 'translate'
+    IonFooter, IonToolbar, IonSegment, IonSegmentButton, IonIcon
   ]
 })
-export class FooterComponent {
-  
+export class FooterComponent implements OnInit{
   selectedButton = 'home';
   @Output() footerClick = new EventEmitter<string>();
   admin_: boolean = false;
-  componente_actual = 'qrwebscanner';
+  userName_: string | undefined = ''; // Esto permite que sea un string o undefined
+
 
   constructor(private auth: AuthService, private scanner: ScannerService, private bd: DatabaseService) { 
-    addIcons({homeOutline,schoolOutline,gridOutline,pencilOutline,qrCodeOutline,pawOutline});
+    addIcons({
+      homeOutline, schoolOutline, gridOutline, pencilOutline, qrCodeOutline, pawOutline, settingsOutline
+    });
   }
 
   sendClickEvent($event: any) {
@@ -38,11 +40,13 @@ export class FooterComponent {
 
   ngOnInit() {
     this.auth.leerUsuarioAutenticado().then((userData) => {
-      this.admin_ = userData?.userName === 'admin';
+      this.userName_ = userData?.userName || ''; // Asegura que userName_ tenga un valor predeterminado
+      this.admin_ = this.userName_ === 'admin';
     });
-    this.componente_actual = '';
-    this.bd.datosQR.next('');
-    
   }
 
+  // Esta función puede ser usada para establecer visibilidad de botones de forma más flexible si se necesita.
+  isVisibleForAll(): boolean {
+    return true; // Siempre devuelve true, ya que los botones "misdatos" y "forum" son visibles para todos
+  }
 }

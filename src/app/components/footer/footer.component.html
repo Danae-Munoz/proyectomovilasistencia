@@ -5,34 +5,36 @@
       (ionChange)="sendClickEvent($event)"
       [(ngModel)]="selectedButton"
     >
-
-      <ion-segment-button  value="welcome" color="primary" class="custom-segment-button ">
+      <!-- Botón de Welcome solo visible para usuarios no admin -->
+      <ion-segment-button *ngIf="!admin_" value="welcome" color="primary" class="custom-segment-button">
         <ion-icon name="home-outline"></ion-icon>
         {{ "HomePage.Button.Wellcome" | translate }}
       </ion-segment-button>
 
-      <ion-segment-button  value="dinosaur" class="custom-segment-button">
+      <!-- Botón de Dinosaur solo visible para usuarios no admin -->
+      <ion-segment-button *ngIf="!admin_" value="dinosaur" class="custom-segment-button">
         <ion-icon name="school-outline"></ion-icon>
         {{ "HomePage.Button.Miclase" | translate }}
       </ion-segment-button>
 
-      <ion-segment-button   value="misdatos" class="custom-segment-button">
+      <!-- Botón de Mis datos visible para todos los usuarios -->
+      <ion-segment-button *ngIf="true" value="misdatos" class="custom-segment-button">
         <ion-icon name="grid-outline"></ion-icon>
         {{ "HomePage.Button.Misdatos" | translate }}
       </ion-segment-button>
 
-      <ion-segment-button   value="forum" class="custom-segment-button">
+      <!-- Botón de Foro visible para todos los usuarios -->
+      <ion-segment-button *ngIf="true" value="forum" class="custom-segment-button">
         <ion-icon name="pencil-outline"></ion-icon>
         {{ "HomePage.Button.Forum" | translate }}
       </ion-segment-button>
 
-      <ion-segment-button *ngIf="admin_"  value="admin" class="custom-segment-button">
-        <ion-icon name="pencil-outline"></ion-icon>
-        {{ "HomePage.Button.Wellcome" | translate }}
+      <!-- Botón de Admin solo visible si el usuario es admin -->
+      <ion-segment-button *ngIf="admin_" value="admin" class="custom-segment-button">
+        <ion-icon name="settings-outline"></ion-icon>
+        {{ "HomePage.Button.Admin" | translate }}
       </ion-segment-button>
-
-      
     </ion-segment>
-
   </ion-toolbar>
 </ion-footer>
+

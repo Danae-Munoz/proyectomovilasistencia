@@ -1,26 +1,29 @@
 <ion-header>
   <ion-toolbar color="primary">
     <div style="display: flex; align-items: center;">
-      <ion-img src="/assets/images/duoc_transp.png" style="width: 80px; height: auto; margin-left: 10px;"></ion-img>  
+      <ion-img src="/assets/images/duoc_transp.png" style="width: 80px; height: auto; margin-left: 10px;"></ion-img>
       <ion-title>
         <h3 class="animated-text"> {{ 'AppName' | translate }} </h3>
       </ion-title>
     </div>
 
     <div slot="end" style="font-size: 12px; padding: 0; margin: 0;">
-      <ion-button (click)="sendClickEvent('testqr')" size="small" style="--padding-start: 4px; --padding-end: 4px;">
+      <!-- Botón Test QR solo visible para usuarios no admin -->
+      <ion-button *ngIf="isVisibleForNonAdmins()" (click)="sendClickEvent('testqr')" size="small" style="--padding-start: 4px; --padding-end: 4px;">
         <ion-icon name="qr-code-outline" color="light" style="font-size: 16px;"></ion-icon>
         &nbsp;Test
       </ion-button>
     
-      <ion-button (click)="sendClickEvent('scan')" size="small" fill="clear" style="--padding-start: 4px; --padding-end: 4px;">
+      <!-- Botón Scan solo visible para usuarios no admin -->
+      <ion-button *ngIf="isVisibleForNonAdmins()" (click)="sendClickEvent('scan')" size="small" fill="clear" style="--padding-start: 4px; --padding-end: 4px;">
         <ion-icon name="qr-code-outline" color="light" style="font-size: 16px;"></ion-icon>
       </ion-button>
     
-      <ion-button (click)="logout()" size="small" fill="clear" style="--padding-start: 4px; --padding-end: 4px;">
+      <!-- Botón Logout visible para todos los usuarios -->
+      <ion-button *ngIf="isVisibleForAll()" (click)="logout()" size="small" fill="clear" style="--padding-start: 4px; --padding-end: 4px;">
         <ion-icon name="log-out-outline" color="light" style="font-size: 16px;"></ion-icon>
       </ion-button>
     </div>
-    
   </ion-toolbar>
 </ion-header>
+

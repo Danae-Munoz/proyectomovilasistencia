@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, ViewChild } from '@angular/core';
 import { DinosaurComponent } from 'src/app/components/dinosaur/dinosaur.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { IonContent } from '@ionic/angular/standalone'
@@ -30,13 +30,13 @@ import { AdminComponent } from 'src/app/components/admin/admin.component';
     CommonModule, FormsModule, TranslateModule, IonContent,
     HeaderComponent, FooterComponent,
     WelcomeComponent, QrWebScannerComponent, DinosaurComponent,
-    ForumComponent, MiClaseComponent, MisDatosComponent, WelcomeComponent, AdminComponent
+    ForumComponent, MisDatosComponent, WelcomeComponent, AdminComponent
 ],
 schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
 // MisdatosComponent
-export class HomePage  {
+export class HomePage implements OnInit{
   
   @ViewChild(FooterComponent) footer!: FooterComponent;
   selectedComponent = 'home';
