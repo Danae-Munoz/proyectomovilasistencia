@@ -39,10 +39,10 @@ schemas: [CUSTOM_ELEMENTS_SCHEMA]
 export class HomePage implements OnInit{
   
   @ViewChild(FooterComponent) footer!: FooterComponent;
-  selectedComponent = 'home';
-  user: User = new User();
-  admin_: boolean = false;
-  componente_actual = 'qrwebscanner';
+  selectedComponent = 'welcome'; // Cambiado a "welcome" por defecto
+  user: any = {}; // O usa el tipo de User específico si lo tienes
+  admin_: boolean = false; // Variable para saber si el usuario es admin
+
 
   constructor(private auth: AuthService, private scanner: ScannerService, private bd: DatabaseService) { 
     this.auth.authUser.subscribe((user) => {
@@ -52,17 +52,19 @@ export class HomePage implements OnInit{
       }
     });
   }
+
   ngOnInit() {
     this.auth.leerUsuarioAutenticado().then((userData) => {
-      this.admin_ = userData?.userName === 'admin';
+      if (userData) {
+        this.admin_ = userData.userName === 'admin'; // Verifica si el nombre de usuario es "admin"
+        if (this.admin_) {
+          this.selectedComponent = 'welcome'; // Inicia en la página "welcome" si el usuario es admin
+        }
+      }
     });
-    this.componente_actual = '';
     this.bd.datosQR.next('');
-    
   }
-  cambiarComponente(nombreComponente: string) {
-    this.componente_actual = nombreComponente;
-  }
+  
 
   ionViewWillEnter() {
     this.changeComponent('qrwebscanner');

@@ -6,7 +6,7 @@
       [(ngModel)]="selectedButton"
     >
       <!-- Botón de Welcome solo visible para usuarios no admin -->
-      <ion-segment-button *ngIf="!admin_" value="welcome" color="primary" class="custom-segment-button">
+      <ion-segment-button *ngIf="true" value="welcome" color="primary" class="custom-segment-button">
         <ion-icon name="home-outline"></ion-icon>
         {{ "HomePage.Button.Wellcome" | translate }}
       </ion-segment-button>
