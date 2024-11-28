@@ -56,6 +56,19 @@ export class DatabaseService {
     'Providencia',
     'default-image.jpg');
 
+  testUser4 = User.getNewUsuario(
+      'admin', 
+      'admin@duocuc.cl', 
+      'admin', 
+      '¿Cuál es tu flor favorita?',
+      'tulipanes',
+      'Admin', 
+      'Admin', 
+      EducationalLevel.findLevel(6)!,
+      new Date(2002, 12, 21),
+      'Coquimbo',
+      'default-image.jpg'); 
+
   userUpgrades = [
     {
       toVersion: 1,
@@ -93,7 +106,7 @@ export class DatabaseService {
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
   `;
 
-  dataBaseName = 'DinosaurDataBase';
+  dataBaseName = 'AsistenciaDataBase';
   private db!: SQLiteDBConnection;
   userList: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   listaUsuarios: BehaviorSubject<Usuario[]> = new BehaviorSubject<Usuario[]>([]);
@@ -362,6 +375,14 @@ export class DatabaseService {
     return usuarios[0];
   }
 
+  async leerUser(cuenta: string): Promise<User | undefined> {
+    const usuarios: User[]= (await this.db.query(
+      'SELECT * FROM USUARIO WHERE userName=?;', 
+      [cuenta])).values as User[];
+    return usuarios[0];
+  }
+  
+
   async leerCorreo(cuenta: string): Promise<Usuario | undefined> {
     const usuarios: Usuario[]= (await this.db.query(
       'SELECT * FROM USER WHERE email=?;', 
@@ -397,6 +418,24 @@ export class DatabaseService {
       'SELECT * FROM USUARIO WHERE correo=?;',
       [correo])).values as Usuario[];
     return usuarios[0];
+  }
+
+  async traerListaUsuarios(): Promise<User[]> {
+    try {
+      const usuarios: User[] = (await this.db.query('SELECT * FROM USER;')).values as User[];
+      console.log(usuarios, 'ReadUsuarios');
+      return usuarios;
+    } catch (error) {
+      console.error('Error al obtener usuarios', error);
+      throw error;
+    }
+  }
+
+  // Delete del CRUD
+  async eliminarUsuarioUsandoUserName(userName: string) {
+    const sql = 'DELETE FROM USER WHERE userName=?';
+    await this.db.run(sql, [userName]);
+    await this.readUsuarios();
   }
 
 }

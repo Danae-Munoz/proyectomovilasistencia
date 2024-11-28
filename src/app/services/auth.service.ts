@@ -22,8 +22,11 @@ export class AuthService {
   qrCodeData = new BehaviorSubject<string | null>(null);
   private contraseñaSubject = new BehaviorSubject<string>('');
   contraseña$ = this.contraseñaSubject.asObservable() //pregunta
+  esAdministrador: boolean;
 
-  constructor(private router: Router, private db: DatabaseService, private storage: Storage) { }
+  constructor(private router: Router, private db: DatabaseService, private storage: Storage) {
+    this.esAdministrador = false;
+   }
 
   async initializeAuthService() {
     try {

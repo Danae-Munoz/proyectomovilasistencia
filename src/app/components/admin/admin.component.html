@@ -4,21 +4,21 @@
   <img src="/assets/icon/c-28b93bf742.webp" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; WIDTH:100%; height: 100%;">
     <ion-card>
         <ion-card-header>
-        {{ usuario!.nombre }} {{ usuario!.apellido }}
+        {{ usuario!.firstName }} {{ usuario!.lastName }}
         </ion-card-header>
         <ion-card-content>
         <!-- Puedes agregar más detalles del usuario aquí si es necesario -->
-        Correo: {{ usuario!.correo }}
+        Correo: {{ usuario!.email }}
         <!-- Otros detalles del usuario... -->
         </ion-card-content>
     </ion-card>
     <ion-card *ngFor="let usuario of filtrarUsuarioEnSesion()">
       <ion-card-header>
-        {{ usuario.nombre }} {{ usuario.apellido }}
+        {{ usuario.firstName }} {{ usuario.lastName }}
       </ion-card-header>
       <ion-card-content>
         <!-- Puedes agregar más detalles del usuario aquí si es necesario -->
-        Correo: {{ usuario.correo }}
+        Correo: {{ usuario.email }}
       </ion-card-content>
       <ion-button (click)="eliminarUsuario(usuario)">
         <ion-icon slot="icon-only" name="trash-outline"></ion-icon>

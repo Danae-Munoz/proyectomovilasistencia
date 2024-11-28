@@ -9,6 +9,7 @@ import { Usuario } from 'src/app/model/usuario';
 import { showAlertDUOC, showAlertError, showAlertYesNoDUOC } from 'src/app/tools/message-routines';
 import { APIClientService} from 'src/app/services/apiclient.service';
 import { MessageEnum } from 'src/app/tools/message-enum';
+import { User } from 'src/app/model/user';
 
 
 @Component({
@@ -19,49 +20,46 @@ import { MessageEnum } from 'src/app/tools/message-enum';
   standalone: true,
 })
 export class AdminComponent  implements OnInit {
-  usuarios: Usuario[] = [];
-  usuario: Usuario | null = null ;
+  usuarios: User[] = [];
+  usuario: User | null = null ;
   constructor(private authService: AuthService, private bd: DatabaseService,  private api: APIClientService) {}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
+
+  async ngOnInit() {
+
+    this.authService.usuarioAutenticado.subscribe((usuario) => {
+      if (usuario !== null) {
+        this.usuario = usuario;
+      }
+    });
+    
+
+    this.bd.traerListaUsuarios()
+    .then((usuarios) => {
+      this.usuarios = usuarios;
+    });
+    
+    
   }
 
+  filtrarUsuarioEnSesion(): User[] {
+    return this.usuarios.filter(usuario => usuario.userName !== 'admin');
+  }
 
-  // async ngOnInit() {
+  async eliminarUsuario(usuario: User) {
+    const usu = await this.bd.leerUser(usuario.userName);
+    if(usu){
+      const resp= await showAlertYesNoDUOC('¿Estas seguro que deseas eliminar este usuario ${usu.firstName}? ');
+      if (resp == MessageEnum.YES){
+        await this.bd.eliminarUsuarioUsandoUserName(usuario.userName);
 
-  //   this.authService.usuarioAutenticado.subscribe((usuario) => {
-  //     if (usuario !== null) {
-  //       this.usuario = usuario;
-  //     }
-  //   });
-    
+        this.usuarios == this.usuarios.filter( u => u.userName !== usuario.userName);
+      }
+    }else{
+      showAlertDUOC('El usuario que desea eliminar no existe')
+    }
 
-  //   this.bd.traerListaUsuarios()
-  //   .then((usuarios) => {
-  //     this.usuarios = usuarios;
-  //   });
-    
-    
-  // }
-
-  // filtrarUsuarioEnSesion(): Usuario[] {
-  //   return this.usuarios.filter(usuario => usuario.correo !== 'admin');
-  // }
-
-  // async eliminarUsuario(usuario: Usuario) {
-  //   const usu = await this.bd.leerUsuario(usuario.correo);
-  //   if(usu){
-  //     const resp= await showAlertYesNoDUOC('¿Estas seguro que deseas eliminar este usuario ${usu.nombre}? ');
-  //     if (resp == MessageEnum.YES){
-  //       await this.bd.eliminarUsuarioUsandoCorreo(usuario.correo);
-
-  //       this.usuarios == this.usuarios.filter( u => u.correo !== usuario.correo);
-  //     }
-  //   }else{
-  //     showAlertDUOC('El usuario que desea eliminar no existe')
-  //   }
-
-  // }
+  }
 
   
 

@@ -34,11 +34,12 @@ schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
 // MisdatosComponent
-export class HomePage {
+export class HomePage  {
   
   @ViewChild(FooterComponent) footer!: FooterComponent;
   selectedComponent = 'home';
   user: User = new User();
+  admin_: boolean = false;
 
   constructor(private auth: AuthService, private scanner: ScannerService) { 
     this.auth.authUser.subscribe((user) => {
@@ -48,6 +49,8 @@ export class HomePage {
       }
     });
   }
+
+ 
 
   ionViewWillEnter() {
     this.changeComponent('qrwebscanner');
