@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Output, ViewChild, OnDestroy } from '@angular/core';
+import { Component, ElementRef, Output, ViewChild, OnDestroy, OnInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { EventEmitter } from '@angular/core';
@@ -16,13 +16,14 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, TranslateModule],
 })
-export class QrWebScannerComponent implements OnDestroy {
+export class QrWebScannerComponent implements OnDestroy, OnInit {
 
   @ViewChild('video') private video!: ElementRef;
   @ViewChild('canvas') private canvas!: ElementRef;
   @Output() scanned: EventEmitter<string> = new EventEmitter<string>();
   @Output() stopped: EventEmitter<void> = new EventEmitter<void>();
-
+  @Input() shouldStartScanning: boolean = false; // Nueva propiedad para controlar la activación de la cámara
+  
   qrData: string = '';
   mediaStream: MediaStream | null = null; // Almacena el flujo de medios
   user = new User();

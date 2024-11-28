@@ -42,15 +42,17 @@ export class HomePage implements OnInit{
   selectedComponent = 'welcome'; // Cambiado a "welcome" por defecto
   user: any = {}; // O usa el tipo de User específico si lo tienes
   admin_: boolean = false; // Variable para saber si el usuario es admin
-
+  shouldStartScanning: boolean = false;
 
   constructor(private auth: AuthService, private scanner: ScannerService, private bd: DatabaseService) { 
     this.auth.authUser.subscribe((user) => {
-      console.log(user);
       if (user) {
         this.user = user;
+        this.admin_ = user.userName === 'admin';
+        this.shouldStartScanning = !this.admin_; // No activar escaneo si es admin
       }
     });
+  
   }
 
   ngOnInit() {

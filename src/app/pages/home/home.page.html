@@ -6,9 +6,10 @@
 
   <!-- Mostrar el componente qrwebscanner solo si admin_ es falso -->
   <app-qrwebscanner 
-    *ngIf="!admin_ && selectedComponent === 'qrwebscanner'"
-    (scanned)="webQrScanned($event)"
-    (stopped)="webQrStopped()">
+  *ngIf="!admin_ && selectedComponent === 'qrwebscanner'"
+  [shouldStartScanning]="selectedComponent === 'qrwebscanner'"
+  (scanned)="webQrScanned($event)"
+  (stopped)="webQrStopped()">
   </app-qrwebscanner>
 
   <app-welcome *ngIf="selectedComponent === 'welcome'"></app-welcome>
