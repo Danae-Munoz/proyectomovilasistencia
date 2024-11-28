@@ -1,27 +1,59 @@
-<ion-content>
+<ion-content [fullscreen]="true">
+  <img class="background-image" src="assets/images/IMG_20230310_082210.jpg">
   <br>
   <h1 style="text-align:center;">Administrar Usuarios</h1>
-  <img src="/assets/icon/c-28b93bf742.webp" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; WIDTH:100%; height: 100%;">
-    <ion-card>
-        <ion-card-header>
+  <ion-card style="background-color: rgba(0, 0, 0, 0.701);"> 
+    <ion-card style="background-color: rgba(164, 113, 18, 0.421);">
+      <ion-card-header style="color: rgba(255, 145, 0, 0.812)">
+        <p style="color: black">Cuenta Administrador</p>
         {{ usuario!.firstName }} {{ usuario!.lastName }}
-        </ion-card-header>
-        <ion-card-content>
+      </ion-card-header>
+      <ion-card-content style="color: black">
         <!-- Puedes agregar más detalles del usuario aquí si es necesario -->
         Correo: {{ usuario!.email }}
         <!-- Otros detalles del usuario... -->
-        </ion-card-content>
-    </ion-card>
-    <ion-card *ngFor="let usuario of filtrarUsuarioEnSesion()">
-      <ion-card-header>
-        {{ usuario.firstName }} {{ usuario.lastName }}
-      </ion-card-header>
-      <ion-card-content>
-        <!-- Puedes agregar más detalles del usuario aquí si es necesario -->
-        Correo: {{ usuario.email }}
       </ion-card-content>
-      <ion-button (click)="eliminarUsuario(usuario)">
-        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-      </ion-button>
     </ion-card>
+  </ion-card>  
+  <ion-card style="background-color: rgba(104, 72, 13, 0.849);" *ngFor="let usuario of filtrarUsuarioEnSesion()">
+    <ion-card-header style="color: rgba(255, 145, 0, 0.812)">
+      {{ usuario.firstName }} {{ usuario.lastName }}
+    </ion-card-header>
+    <ion-card-content style="color: rgb(201, 198, 198);">
+      <!-- Puedes agregar más detalles del usuario aquí si es necesario -->
+      Correo: {{ usuario.email }}
+    </ion-card-content>
+
+    <div class="button-container">
+      <ion-button class="delete-button" (click)="eliminarUsuario(usuario)">
+        <img src="/assets/images/1214428.png" alt="Eliminar" style="width: 20px; height: 20px;">
+      </ion-button>
+    </div>
+  </ion-card>
 </ion-content>
+
+<style>
+/* Contenedor del botón */
+.button-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;    /* Centra verticalmente */
+  margin-top: 10px;
+}
+
+/* Estilo del botón */
+.delete-button {
+  --background: #ff4d4d; /* Fondo rojo */
+  --color: white;        /* Color del texto o ícono */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cambio de color al pasar el mouse */
+.delete-button:hover {
+  --background: #e60000; /* Fondo rojo oscuro */
+}
+</style>
+

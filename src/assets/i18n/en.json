@@ -33,6 +33,7 @@
     "HomePage.Button.Misdatos": "My data",
     "HomePage.Button.Detener": "Stop QR scanning",
     "HomePage.Button.Reg": "Register",
+    "HomePage.Button.Admin": "Admin",
 
     "ThemePage.Label.ColorTheme": "Color Theme:",
     "ThemePage.Color.Light": "Light",

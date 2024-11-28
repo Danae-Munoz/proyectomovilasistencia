@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonFooter, IonToolbar, IonSegment, IonSegmentButton, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { homeOutline, pawOutline, pencilOutline, qrCodeOutline, schoolOutline, gridOutline, settingsOutline } from 'ionicons/icons';
+import { homeOutline, pawOutline, pencilOutline, qrCodeOutline, schoolOutline, gridOutline, settingsOutline, personOutline } from 'ionicons/icons';
 import { ScannerService } from 'src/app/services/scanner.service';
 import { DatabaseService } from 'src/app/services/database.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -29,9 +29,7 @@ export class FooterComponent implements OnInit{
 
 
   constructor(private auth: AuthService, private scanner: ScannerService, private bd: DatabaseService) { 
-    addIcons({
-      homeOutline, schoolOutline, gridOutline, pencilOutline, qrCodeOutline, pawOutline, settingsOutline
-    });
+    addIcons({homeOutline,schoolOutline,gridOutline,pencilOutline,personOutline,qrCodeOutline,pawOutline,settingsOutline});
   }
 
   sendClickEvent($event: any) {
