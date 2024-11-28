@@ -111,6 +111,7 @@ export class DatabaseService {
   userList: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   listaUsuarios: BehaviorSubject<Usuario[]> = new BehaviorSubject<Usuario[]>([]);
   listaUsuario: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  datosQR: BehaviorSubject<string> = new BehaviorSubject('');
   
   constructor(private sqliteService: SQLiteService) { }
 

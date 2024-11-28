@@ -18,6 +18,8 @@ import { MisDatosComponent } from 'src/app/components/misdatos/misdatos.componen
 import { User } from 'src/app/model/user';
 import { Usuario } from 'src/app/model/usuario';
 import { Asistencia } from 'src/app/model/asistencia';
+import { DatabaseService } from 'src/app/services/database.service';
+import { AdminComponent } from 'src/app/components/admin/admin.component';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +30,7 @@ import { Asistencia } from 'src/app/model/asistencia';
     CommonModule, FormsModule, TranslateModule, IonContent,
     HeaderComponent, FooterComponent,
     WelcomeComponent, QrWebScannerComponent, DinosaurComponent,
-    ForumComponent, MiClaseComponent, MisDatosComponent, WelcomeComponent  
+    ForumComponent, MiClaseComponent, MisDatosComponent, WelcomeComponent, AdminComponent
 ],
 schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
@@ -40,8 +42,9 @@ export class HomePage  {
   selectedComponent = 'home';
   user: User = new User();
   admin_: boolean = false;
+  componente_actual = 'qrwebscanner';
 
-  constructor(private auth: AuthService, private scanner: ScannerService) { 
+  constructor(private auth: AuthService, private scanner: ScannerService, private bd: DatabaseService) { 
     this.auth.authUser.subscribe((user) => {
       console.log(user);
       if (user) {
@@ -49,8 +52,17 @@ export class HomePage  {
       }
     });
   }
-
- 
+  ngOnInit() {
+    this.auth.leerUsuarioAutenticado().then((userData) => {
+      this.admin_ = userData?.userName === 'admin';
+    });
+    this.componente_actual = '';
+    this.bd.datosQR.next('');
+    
+  }
+  cambiarComponente(nombreComponente: string) {
+    this.componente_actual = nombreComponente;
+  }
 
   ionViewWillEnter() {
     this.changeComponent('qrwebscanner');
