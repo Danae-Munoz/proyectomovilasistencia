@@ -6,7 +6,7 @@ npm install -g json-server
 
 json-server --watch dbposts.json
 
-json-server --watch dbposts.json --host 192.168.227.11 --port 8105
+json-server --watch dbposts.json --host 192.168.227.11 --port 4000
 
 
 
@@ -16,7 +16,7 @@ C:\Users\danit\Documents\GitHub\proyectomovilasistencia\android\app\release
 
 pruebas unitarias:
 ng test
-
+*
 cypress:
 npm instal cypress --save-dev
 npx cypress open

@@ -69,7 +69,7 @@ export class HomePage implements OnInit{
   
 
   ionViewWillEnter() {
-    this.changeComponent('qrwebscanner');
+    this.changeComponent('welcome');
   }
 
   async headerClick(button: string) {
@@ -104,9 +104,12 @@ export class HomePage implements OnInit{
     this.changeComponent('welcome');
   }
 
-  footerClick(button: string) {
+  async footerClick(button: string) {
     console.log('Footer clicked:', button);
     this.selectedComponent = button;
+    if (button==='qrwebscanner' && Capacitor.platform != 'web'){
+      this.showDinoComponent(await this.scanner.scan());
+    }
   }
 
   changeComponent(name: string) {

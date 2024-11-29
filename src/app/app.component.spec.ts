@@ -2,12 +2,13 @@ import { Usuarios } from 'src/app/model/Usuarios';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('Probar el comienzo de la aplicación', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent],
+      imports: [AppComponent,  ActivatedRoute],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
