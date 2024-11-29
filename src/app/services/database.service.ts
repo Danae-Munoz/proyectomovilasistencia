@@ -378,7 +378,7 @@ export class DatabaseService {
 
   async leerUser(cuenta: string): Promise<User | undefined> {
     const usuarios: User[]= (await this.db.query(
-      'SELECT * FROM USUARIO WHERE userName=?;', 
+      'SELECT * FROM USER WHERE userName=?;', 
       [cuenta])).values as User[];
     return usuarios[0];
   }

@@ -19,53 +19,49 @@ import { User } from 'src/app/model/user';
   imports: [IonicModule, CommonModule, FormsModule],
   standalone: true,
 })
-export class AdminComponent  implements OnInit {
+export class AdminComponent implements OnInit {
   usuarios: User[] = [];
-  usuario: User | null = null ;
-  constructor(private authService: AuthService, private bd: DatabaseService,  private api: APIClientService) {}
+  usuario: User | null = null;
 
+  constructor(
+    private authService: AuthService,
+    private bd: DatabaseService,
+    private api: APIClientService
+  ) {}
 
   async ngOnInit() {
-
     this.authService.usuarioAutenticado.subscribe((usuario) => {
       if (usuario !== null) {
         this.usuario = usuario;
       }
     });
-    
 
-    this.bd.traerListaUsuarios()
-    .then((usuarios) => {
+    this.bd.traerListaUsuarios().then((usuarios) => {
       this.usuarios = usuarios;
     });
-    
-    
   }
 
   filtrarUsuarioEnSesion(): User[] {
-    return this.usuarios.filter(usuario => usuario.userName !== 'admin');
+    return this.usuarios.filter((usuario) => usuario.userName !== 'admin');
   }
 
   async eliminarUsuario(usuario: User) {
     const usu = await this.bd.leerUser(usuario.userName);
-    if(usu){
-      const resp= await showAlertYesNoDUOC('¿Estas seguro que deseas eliminar este usuario ${usu.firstName}? ');
-      if (resp == MessageEnum.YES){
+    if (usu) {
+      const resp = await showAlertYesNoDUOC(
+        `¿Estás seguro que deseas eliminar este usuario ${usu.firstName}?`
+      );
+      if (resp === MessageEnum.YES) {
         await this.bd.eliminarUsuarioUsandoUserName(usuario.userName);
 
-        this.usuarios == this.usuarios.filter( u => u.userName !== usuario.userName);
+        // Actualiza la lista de usuarios localmente
+        this.usuarios = this.usuarios.filter((u) => u.userName !== usuario.userName);
+
+        // Muestra una alerta de éxito
+        showAlertDUOC('Usuario eliminado exitosamente');
       }
-    }else{
-      showAlertDUOC('El usuario que desea eliminar no existe')
+    } else {
+      showAlertDUOC('El usuario que desea eliminar no existe');
     }
-
   }
-
-  
-
-    
-    
-
 }
-
-
