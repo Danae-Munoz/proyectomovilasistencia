@@ -6,4 +6,4 @@ npm install -g json-server
 
 json-server --watch dbposts.json
 
-json-server --watch db.json --host 192.168.227.11 --port 8105
+json-server --watch dbposts.json --host 192.168.227.11 --port 8105
