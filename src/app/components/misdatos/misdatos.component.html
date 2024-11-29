@@ -1,26 +1,25 @@
 <ion-content [fullscreen]="true">
-  
-    <img class="background-image" src="assets/images/IMG_20230310_082210.jpg">
-    <br>
-    <h2 class="ion-text-center">{{'Datos.From.Datos' | translate}} {{ usuario.firstName }} {{ usuario.lastName }}</h2>
+  <img class="background-image" src="assets/images/IMG_20230310_082210.jpg">
+  <br>
+  <h2 class="ion-text-center">{{'Datos.From.Datos' | translate}} {{ usuario.firstName }} {{ usuario.lastName }}</h2>
 
   <ion-card class="ion-text-center">
-    <ion-item><ion-input label="{{'Datos.From.Cuenta' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.userName"></ion-input></ion-item>
+    <ion-item><ion-input label="{{'Datos.From.Cuenta' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.userName" required></ion-input></ion-item>
     <br>
-    <ion-item><ion-input label="{{'Datos.From.User' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.firstName"></ion-input></ion-item>
+    <ion-item><ion-input label="{{'Datos.From.User' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.firstName" required></ion-input></ion-item>
     <br>
-    <ion-item><ion-input label="{{'Datos.From.Apellido' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.lastName"></ion-input></ion-item>
+    <ion-item><ion-input label="{{'Datos.From.Apellido' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.lastName" required></ion-input></ion-item>
     <br>
-    <ion-item><ion-input label="{{'Datos.From.Correo' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.email"></ion-input></ion-item>
+    <ion-item><ion-input type="email" label="{{'Datos.From.Correo' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.email" required></ion-input></ion-item>
     <br>
-    <ion-item><ion-input label="{{'Datos.From.Direccion' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.address"></ion-input></ion-item>
+    <ion-item><ion-input label="{{'Datos.From.Direccion' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.address" required></ion-input></ion-item>
     <br>
-    <ion-item><ion-input label="{{'Datos.From.Pregunta' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.secretQuestion"></ion-input></ion-item>
+    <ion-item><ion-input label="{{'Datos.From.Pregunta' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.secretQuestion" required></ion-input></ion-item>
     <br>
-    <ion-item><ion-input label="{{'Datos.From.Respuesta' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.secretAnswer"></ion-input></ion-item>
+    <ion-item><ion-input label="{{'Datos.From.Respuesta' | translate}}" labelPlacement="floating" [(ngModel)]="usuario.secretAnswer" required></ion-input></ion-item>
     <br>
     <ion-item class="font-size-12">
-      <ion-select [(ngModel)]="usuario.educationalLevel.id" (ionChange)="actualizarNivelEducacional($event)" label="{{'Datos.From.Educacion' | translate}}" position="floating">
+      <ion-select [(ngModel)]="usuario.educationalLevel.id" (ionChange)="actualizarNivelEducacional($event)" label="{{'Datos.From.Educacion' | translate}}" position="floating" required>
         <ion-select-option *ngFor="let nivelEducacional of listaNivelesEducacionales" [value]="nivelEducacional.id">
           {{nivelEducacional.name}}
         </ion-select-option>
@@ -28,55 +27,51 @@
     </ion-item>
     <br>
     <ion-item>
-      <table>  
-        <tr>  
-          <td class="font-size-12" style="color:#000000;">{{'Datos.From.Nacimiento' | translate}}</td> 
-          <br> 
-          <td class="cell-align-right">  
-            <input matInput [matDatepicker]="dateOfBirth"  
-              [(ngModel)]="usuario.dateOfBirth"  
-              placeholder="dd/mm/yyyy"  
-              class="date-width">  
-          </td>  
-          <td class="cell-width-0"  >  
-            <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>  
-            <mat-datepicker #dateOfBirth></mat-datepicker>  
-          </td>  
-        </tr>  
-      </table>  
-  </ion-item>
-  <br>
-  <ion-item class="margin-bottom-6 float-right-landscape">
-    <ion-input 
-      label="{{ 'Login.Label.Password' | translate }}"
-      labelPlacement="floating"
-      [(ngModel)]="usuario.password" 
-      [type]="showPassword ? 'text' : 'password'"
-      placeholder="{{'Datos.From.Pass' | translate}}">
-    </ion-input>
-    <ion-icon name="eye" color="light" style="font-size: 16px;"></ion-icon>
-    <ion-icon 
-      name="{{ showPassword ? 'eye-off' : 'eye' }}" 
-      [style.color]="showPassword ? 'red' : 'green'"
-      [style.fontSize]="'24px'" 
-      (click)="togglePasswordVisibility()"
-      class="password-icon">
-    </ion-icon>
-  </ion-item>
-
-  
+      <table>
+        <tr>
+          <td class="font-size-12" style="color:#000000;">{{'Datos.From.Nacimiento' | translate}}</td>
+          <td class="cell-align-right">
+            <input matInput [matDatepicker]="dateOfBirth" [(ngModel)]="usuario.dateOfBirth" placeholder="dd/mm/yyyy" class="date-width" required>
+          </td>
+          <td class="cell-width-0">
+            <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+            <mat-datepicker #dateOfBirth></mat-datepicker>
+          </td>
+        </tr>
+      </table>
+    </ion-item>
+    <br>
+    <ion-item class="margin-bottom-6 float-right-landscape">
+      <ion-input
+        label="{{ 'Login.Label.Password' | translate }}"
+        labelPlacement="floating"
+        [(ngModel)]="usuario.password"
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="{{'Datos.From.Pass' | translate}}"
+        required
+      ></ion-input>
+      <ion-icon name="eye" color="light" style="font-size: 16px;"></ion-icon>
+      <ion-icon
+        name="{{ showPassword ? 'eye-off' : 'eye' }}"
+        [style.color]="showPassword ? 'red' : 'green'"
+        [style.fontSize]="'24px'"
+        (click)="togglePasswordVisibility()"
+        class="password-icon"
+      ></ion-icon>
+    </ion-item>
     <br>
   </ion-card>
-  <ion-button 
-  (click)="guardarUsuario()" 
-  color="primary" 
-  shape="round" 
-  expand="full" 
-  style="font-size: 16px; font-weight: bold; text-transform: uppercase; box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);"
->
-{{'Datos.From.Actualizar' | translate}}
-</ion-button>
+
+  <ion-button
+    [disabled]="!usuario.userName || !usuario.firstName || !usuario.lastName || !usuario.email || !usuario.address || !usuario.secretQuestion || !usuario.secretAnswer || !usuario.dateOfBirth || !usuario.password"
+    (click)="guardarUsuario()"
+    color="primary"
+    shape="round"
+    expand="full"
+    style="font-size: 16px; font-weight: bold; text-transform: uppercase; box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);"
+  >
+    {{'Datos.From.Actualizar' | translate}}
+  </ion-button>
 
   <br>
-
 </ion-content>
