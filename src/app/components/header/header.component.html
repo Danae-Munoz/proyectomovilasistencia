@@ -20,7 +20,7 @@
       </ion-button>
     
       <!-- Botón Logout visible para todos los usuarios -->
-      <ion-button *ngIf="isVisibleForAll()" (click)="logout()" size="small" fill="clear" style="--padding-start: 4px; --padding-end: 4px;">
+      <ion-button id="salir" *ngIf="isVisibleForAll()" (click)="logout()" size="small" fill="clear" style="--padding-start: 4px; --padding-end: 4px;">
         <ion-icon name="log-out-outline" color="light" style="font-size: 16px;"></ion-icon>
       </ion-button>
     </div>

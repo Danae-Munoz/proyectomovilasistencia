@@ -13,3 +13,7 @@ json-server --watch dbposts.json --host 192.168.227.11 --port 8105
 los apk:
 C:\Users\danit\Documents\GitHub\proyectomovilasistencia\android\app\build\outputs\apk\debug
 C:\Users\danit\Documents\GitHub\proyectomovilasistencia\android\app\release
+
+cypress:
+npm instal cypress --save-dev
+npx cypress open

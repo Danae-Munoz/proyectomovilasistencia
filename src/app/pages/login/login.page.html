@@ -40,15 +40,18 @@
       
       <ion-item class="margin-bottom-6 float-left-landscape">
         <ion-input 
+          id="cuenta"
           label="{{ 'Login.Label.Cuenta' | translate }}" 
           labelPlacement="floating"
           [(ngModel)]="correo" 
-          placeholder="{{ 'Login.Placeholder.Email' | translate }}">
+          placeholder="{{ 'Login.Placeholder.Email' | translate }}"
+          type="cuenta">
         </ion-input>
       </ion-item>
 
       <ion-item class="margin-bottom-6 float-right-landscape">
         <ion-input 
+          id="password"
           label="{{ 'Login.Label.Password' | translate }}"
           labelPlacement="floating"
           [(ngModel)]="password" 
@@ -58,8 +61,8 @@
       </ion-item>
 
       <div class="ion-text-center margin-top-6" style="clear: both;">
-        <ion-button class="enter-button normal-text" shape="round" (click)="login()">
-          {{ 'Login.Button.Login' | translate }}
+        <ion-button id="ingresar" class="enter-button normal-text" shape="round" (click)="login()">
+          Ingresar
         </ion-button>
       </div>
 

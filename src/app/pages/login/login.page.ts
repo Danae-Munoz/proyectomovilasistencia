@@ -47,8 +47,8 @@ export class LoginPage implements ViewWillEnter {
     , private translate: TranslateService
     , private authService: AuthService) 
   { 
-    this.correo = 'atorres';
-    this.password = '1234';
+    this.correo = '';
+    this.password = '';
     // Los iconos deben ser agregados a uno (ver en https://ionic.io/ionicons)
     addIcons({ colorWandOutline }); 
   }
