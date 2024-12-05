@@ -92,6 +92,10 @@ export class MisDatosComponent implements OnInit {
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
+  // Función para limpiar los campos del formulario
+  limpiar() {
+    this.usuario = new User(); // Restablece todos los campos del objeto 'usuario'
+  }
 
   
 }

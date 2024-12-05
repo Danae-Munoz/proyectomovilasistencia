@@ -102,6 +102,7 @@
     "Datos.From.Nacimiento": "Birth",
     "Datos.From.Pass": "Password",
     "Datos.From.Actualizar": "Update data",
+    "Datos.From.Limpiar": "Clear",
 
     "Footer.From.Gestion": "Publication Management",
     "Footer.From.Titulo": "Title",

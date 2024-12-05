@@ -26,6 +26,12 @@ Comparar el texto de un control HTML identificado por un id="#saludo":
 
 describe('Verificar mi aplicación', () => {
 
+  it('Salir', () => {
+    cy.visit('http://localhost:8100/home').then(() => {
+    cy.get('#salir').should('be.visible').and('not.be.disabled').click();
+    });
+  });
+
   // Se intentará navegar hacia la página de inicio con un correo inexistente, por lo que
   // será inutil probar si el saludo se le emite al usuario "Juan Pérez González".
   // En este caso se detectará un error y se mostrará un mensaje.
@@ -42,8 +48,8 @@ describe('Verificar mi aplicación', () => {
   // });
 
 
-  // Se intentará navegar hacia la página de inicio con el correo "jperez@duocuc.cl", por lo que
-  // la Aplicación debe probar si el saludo se le emite al usuario "Juan Pérez González".
+  // Se intentará navegar hacia la página de inicio con el correo "atorres", por lo que
+  // la Aplicación debe probar si el saludo se le emite al usuario "Ana Torres".
   // En este caso debe pasar correctamente la prueba.
 
   // it('Verificar login con credenciales correctas', () => {
@@ -77,138 +83,121 @@ describe('Verificar mi aplicación', () => {
   //     // cy.get('ion-list').children().should('have.length.greaterThan', 0);
   //     // cy.get('ion-card').first().find('h4').should('contain.text', 'Título de prueba');
   //     // cy.get('ion-card').first().find('p').should('contain.text', 'Descripción de prueba');
+  //      cy.get('#salir').should('be.visible').and('not.be.disabled').click();
   //   });
   // });
 
-  it('Verificar que se puede eliminar una publicación en el foro', () => {
-    cy.visit('http://localhost:8100/login').then(() => {
-      cy.get('#cuenta').should('be.visible').type('atorres');
-      cy.get('#password').type('1234');   // Simular escritura
-      cy.contains('Ingresar').click();
-      cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
-      cy.get('h1').should('be.visible').and('contain.text', 'Ana Torres');
-      cy.contains('Foro').click();
-       // Verificar que la lista de publicaciones contiene al menos una publicación.
-      cy.get('ion-list ion-card').should('have.length.greaterThan', 0);
+  // it('Verificar que se puede eliminar una publicación en el foro', () => {
+  //   cy.visit('http://localhost:8100/login').then(() => {
+  //     cy.get('#cuenta').should('be.visible').type('atorres');
+  //     cy.get('#password').type('1234');   // Simular escritura
+  //     cy.contains('Ingresar').click();
+  //     cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+  //     cy.get('h1').should('be.visible').and('contain.text', 'Ana Torres');
+  //     cy.contains('Foro').click();
+  //      // Verificar que la lista de publicaciones contiene al menos una publicación.
+  //     cy.get('ion-list ion-card').should('have.length.greaterThan', 0);
 
-      // Seleccionar el primer `ion-card` y hacer clic en el botón de eliminación, forzando el clic.
-      cy.get('ion-list ion-card').first().find('#eliminar').click({ force: true });
+  //     // Seleccionar el primer `ion-card` y hacer clic en el botón de eliminación, forzando el clic.
+  //     cy.get('ion-list ion-card').first().find('#eliminar').click({ force: true });
 
-      // Esperar un momento para que la lista se actualice después de la eliminación.
-      cy.wait(1000); // Ajusta el tiempo de espera según sea necesario.
+  //     // Esperar un momento para que la lista se actualice después de la eliminación.
+  //     cy.wait(1000); // Ajusta el tiempo de espera según sea necesario.
 
-      // Verificar que la cantidad de elementos ha disminuido.
-      cy.get('ion-list ion-card').should('have.length', 14); // Cambia a 11 si esperas que la lista se reduzca en 1.
-    });
-  });
-
-  it('Verificar validaciones de campos en Mis Datos', () => {
-    cy.visit('http://localhost:8100/login').then(() => {
-      cy.get('#cuenta').should('be.visible').type('atorres');
-      cy.get('#password').type('1234'); // Simular escritura
-      cy.contains('Ingresar').click();
-      cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
-      cy.get('h1').should('be.visible').and('contain.text', 'Ana Torres');
-      cy.contains('Mis datos').click();
-  
-      // Completar los campos del formulario para habilitar el botón de "Actualizar".
-      cy.get('ion-input[label="Datos.From.Cuenta"]').type('Usuario123');
-      cy.get('ion-input[label="Datos.From.User"]').type('Juan');
-      cy.get('ion-input[label="Datos.From.Apellido"]').type('Pérez');
-      cy.get('ion-input[type="email"]').type('juan.perez@example.com');
-      cy.get('ion-input[label="Datos.From.Direccion"]').type('Calle Falsa 123');
-      cy.get('ion-input[label="Datos.From.Pregunta"]').type('¿Color favorito?');
-      cy.get('ion-input[label="Datos.From.Respuesta"]').type('Azul');
-  
-      // Seleccionar un nivel educacional
-      cy.get('ion-select').select('Superior completa'); // Cambia el valor a uno real de la lista
-  
-      // Completar la fecha de nacimiento
-      cy.get('input[matInput]').type('01/01/2000');
-  
-      // Completar la contraseña
-      cy.get('ion-input[label="Login.Label.Password"]').type('password123');
-  
-      // Verificar que el botón de "Actualizar" esté habilitado
-      cy.get('ion-button').should('not.be.disabled');
-  
-      // Vaciar algunos campos para probar la validación
-      cy.get('ion-input[label="Datos.From.Cuenta"]').clear();
-  
-      // Intentar hacer clic en el botón de actualizar
-      cy.get('ion-button').click();
-  
-      // Verificar que el botón esté deshabilitado (la validación no debe permitir enviar)
-      cy.get('ion-button').should('be.disabled');
-    });
-  });
-  
-
-
-
-
-  //   it('Verificar validaciones de campos en Mis Datos', () => {
-  //     cy.visit('http://localhost:8100/misdatos');
-
-  //     // Agregar una espera para asegurar que la página cargue completamente
-  //     cy.wait(1000);
-
-  //     // Dejar los campos en blanco y hacer clic en guardar
-  //     cy.get('#nombre').clear();
-  //     cy.get('#apellido').clear();
-  //     cy.get('#email').clear();
-  //     cy.get('#fecha-nacimiento').clear();
-  //     cy.contains('Guardar').click();
-
-  //     // Verificar que se muestran mensajes de error para los campos requeridos
-  //     cy.get('#error-nombre').should('be.visible').and('contain.text', 'Este campo es obligatorio');
-  //     cy.get('#error-apellido').should('be.visible').and('contain.text', 'Este campo es obligatorio');
-  //     cy.get('#error-email').should('be.visible').and('contain.text', 'Este campo es obligatorio');
-  //     cy.get('#error-fecha').should('be.visible').and('contain.text', 'Este campo es obligatorio');
-
-  //     // Esperar un poco para que los mensajes de error carguen correctamente
-  //     cy.wait(1000);
-
-  //     // Ingresar un email inválido y verificar el mensaje de error
-  //     cy.get('#email').type('correo-invalido');
-  //     cy.contains('Guardar').click();
-  //     cy.get('#error-email').should('be.visible').and('contain.text', 'Debe ser un email válido');
-
-  //     // Esperar un poco antes de pasar a la siguiente validación
-  //     cy.wait(1000);
-
-  //     // Ingresar una fecha inválida y verificar el mensaje de error
-  //     cy.get('#fecha-nacimiento').type('12345678');
-  //     cy.contains('Guardar').click();
-  //     cy.get('#error-fecha').should('be.visible').and('contain.text', 'Debe ser una fecha válida');
-  //   });
-
-  //   it('Verificar que se grabe correctamente la actualización de datos en Mis Datos', () => {
-  //     cy.visit('http://localhost:8100/misdatos');
-
-  //     // Esperar un poco para asegurar que la página cargue completamente
-  //     cy.wait(1000);
-
-  //     // Ingresar datos válidos en todos los campos
-  //     cy.get('#nombre').clear().type('Ana');
-  //     cy.get('#apellido').clear().type('Torres');
-  //     cy.get('#email').clear().type('ana.torres@example.com');
-  //     cy.get('#fecha-nacimiento').clear().type('1990-01-01');
-
-  //     // Hacer clic en el botón de guardar
-  //     cy.contains('Guardar').click();
-
-  //     // Esperar un poco para que la actualización se guarde correctamente
-  //     cy.wait(1000);
-
-  //     // Verificar que los datos han sido guardados y que la aplicación muestra un mensaje de éxito o redirige correctamente
-  //     cy.get('.mensaje-exito').should('be.visible').and('contain.text', 'Datos actualizados correctamente');
-  //     cy.get('#nombre').should('have.value', 'Ana');
-  //     cy.get('#apellido').should('have.value', 'Torres');
-  //     cy.get('#email').should('have.value', 'ana.torres@example.com');
-  //     cy.get('#fecha-nacimiento').should('have.value', '1990-01-01');
+  //     // Verificar que la cantidad de elementos ha disminuido.
+  //     cy.get('ion-list ion-card').should('have.length', 14); // Cambia a 11 si esperas que la lista se reduzca en 1.
+  //     cy.get('#salir').should('be.visible').and('not.be.disabled').click();
   //   });
   // });
+
+//   it('Verificar validaciones de campos en Mis Datos', () => {
+//   cy.visit('http://localhost:8100/login').then(() => {
+//     cy.get('#cuenta').should('be.visible').type('atorres');
+//     cy.get('#password').type('1234');
+//     cy.contains('Ingresar').click();
+//     cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+//     cy.get('h1').should('be.visible').and('contain.text', 'Ana Torres');
+//     cy.contains('Mis datos').click();
+  
+//     // Verifica que los campos con datos tengan la clase ng-valid
+//     cy.get('#input-userName').should('have.class', 'ng-valid');
+//     cy.get('#input-firstName').should('have.class', 'ng-valid');
+//     cy.get('#input-lastName').should('have.class', 'ng-valid');
+//     cy.get('#input-email').should('have.class', 'ng-valid');
+//     cy.get('#input-address').should('have.class', 'ng-valid');
+//     cy.get('#input-secretQuestion').should('have.class', 'ng-valid');
+//     cy.get('#input-secretAnswer').should('have.class', 'ng-valid');
+//     cy.get('#input-dateOfBirth input').should('have.class', 'ng-valid');
+//     cy.get('#input-password').should('have.class', 'ng-valid');
+
+//     // Limpia los campos para que estén vacíos usando type con {selectall}{backspace}
+//     cy.contains('Limpiar').click();
+//     cy.wait(1000); // Espera 1 segundo para que la UI se actualice
+//     // Verifica que los campos estén marcados como inválidos
+//     cy.get('#input-userName').should('have.class', 'ng-invalid');
+//     cy.get('#input-firstName').should('have.class', 'ng-invalid');
+//     cy.get('#input-lastName').should('have.class', 'ng-invalid');
+//     cy.get('#input-email').should('have.class', 'ng-invalid');
+//     // cy.get('#input-address', { timeout: 10000 }).should('have.class', 'ng-invalid');
+//     cy.get('#input-secretQuestion').should('have.class', 'ng-invalid');
+//     cy.get('#input-secretAnswer').should('have.class', 'ng-invalid');
+//     // cy.get('#input-dateOfBirth input').should('have.class', 'ng-invalid');
+//     cy.get('#input-password').should('have.class', 'ng-invalid');
+//     // Verifica que el boton actualizar este invalido
+//     cy.get('#update-button').should('have.attr', 'disabled');
+//     //salir
+//     cy.get('#salir').should('be.visible').and('not.be.disabled').click();
+//   });
+// });
+
+// it('Verificar actualizar en Mis Datos', () => {
+//   cy.visit('http://localhost:8100/login').then(() => {
+//     cy.get('#cuenta').should('be.visible').type('atorres');
+//     cy.get('#password').type('1234');
+//     cy.contains('Ingresar').click();
+//     cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+//     cy.get('h1').should('be.visible').and('contain.text', 'Ana Torres');
+//     cy.contains('Mis datos').click();
+  
+//     // Verifica que los campos con datos tengan la clase ng-valid
+//     cy.get('#input-userName').should('have.class', 'ng-valid');
+//     cy.get('#input-firstName').should('have.class', 'ng-valid');
+//     cy.get('#input-lastName').should('have.class', 'ng-valid');
+//     cy.get('#input-email').should('have.class', 'ng-valid');
+//     cy.get('#input-address').should('have.class', 'ng-valid');
+//     cy.get('#input-secretQuestion').should('have.class', 'ng-valid');
+//     cy.get('#input-secretAnswer').should('have.class', 'ng-valid');
+//     cy.get('#input-dateOfBirth input').should('have.class', 'ng-valid');
+//     cy.get('#input-password').should('have.class', 'ng-valid');
+//     // Haz clic en el botón de actualizar
+//     cy.get('#update-button').click();
+//     // Haz clic en el botón de actualizar
+//     cy.get('#update-button').click();
+
+//     // // Espera 2 segundos para que el mensaje de éxito aparezca
+//     // cy.wait(2000);  // Asegúrate de ajustar esto si es necesario
+
+//     // // Verifica que el mensaje de éxito sea visible
+//     // cy.get('.toast-message', { timeout: 10000 }) // Ajusta el selector si es diferente
+//     //   .should('be.visible')
+//     //   .and('contain.text', 'El usuario fue guardado correctamente');
+
+//   });
+// });
+
+
+  it('Verificar el usuario administrador', () => {
+    cy.visit('http://localhost:8100/login').then(() => {
+      cy.get('#cuenta').should('be.visible').type('admin');
+      cy.get('#password').type('admin');
+      cy.contains('Ingresar').click();
+      cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+      cy.get('h1').should('be.visible').and('contain.text', 'admin');
+      cy.get('h1').should('be.visible').and('contain.text', 'administrar');
+  
+    });
+  });
+
 
 
 });

@@ -44,13 +44,13 @@ export class DatabaseService {
     'default-image.jpg');
 
   testUser3 = User.getNewUsuario(
-    'cmujica', 
-    'cmujica@duocuc.cl', 
-    '0987', 
+    'admin', 
+    'admin@duocuc.cl', 
+    'admin', 
     '¿Cuál es tu vehículo favorito?',
     'moto',
-    'Carla', 
-    'Mujica', 
+    'Admin', 
+    'del sistema', 
     EducationalLevel.findLevel(6)!,
     new Date(2000, 2, 20),
     'Providencia',
@@ -144,6 +144,12 @@ export class DatabaseService {
       const user3 = await this.readUser(this.testUser3.userName);
       if (!user3) {
         await this.saveUser(this.testUser3);
+      }
+
+      // Verifica y guarda al usuario 'admin' si no existe
+      const user4 = await this.readUser(this.testUser4.userName);
+      if (!user4) {
+        await this.saveUser(this.testUser4);
       }
   
     } catch (error) {
