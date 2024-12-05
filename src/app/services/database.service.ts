@@ -44,13 +44,13 @@ export class DatabaseService {
     'default-image.jpg');
 
   testUser3 = User.getNewUsuario(
-    'admin', 
-    'admin@duocuc.cl', 
-    'admin', 
+    'cmujica', 
+    'cmujica@duocuc.cl', 
+    '0987', 
     '¿Cuál es tu vehículo favorito?',
     'moto',
-    'Admin', 
-    'del sistema', 
+    'Carla', 
+    'Mujica', 
     EducationalLevel.findLevel(6)!,
     new Date(2000, 2, 20),
     'Providencia',
