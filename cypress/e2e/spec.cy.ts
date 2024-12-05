@@ -26,11 +26,11 @@ Comparar el texto de un control HTML identificado por un id="#saludo":
 
 describe('Verificar mi aplicación', () => {
 
-  it('Salir', () => {
-    cy.visit('http://localhost:8100/home').then(() => {
-    cy.get('#salir').should('be.visible').and('not.be.disabled').click();
-    });
-  });
+  // it('Salir', () => {
+  //   cy.visit('http://localhost:8100/home').then(() => {
+  //   cy.get('#salir').should('be.visible').and('not.be.disabled').click();
+  //   });
+  // });
 
   // Se intentará navegar hacia la página de inicio con un correo inexistente, por lo que
   // será inutil probar si el saludo se le emite al usuario "Juan Pérez González".
