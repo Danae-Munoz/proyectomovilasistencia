@@ -39,4 +39,16 @@ describe('Probar el comienzo de la aplicación', () => {
     expect(app.title);
   });
 
+  it('Debería manejar rutas dinámicas correctamente', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+  
+    // Simulación del ActivatedRoute
+    const route = TestBed.inject(ActivatedRoute);
+    (route.snapshot as any).params = { id: '123' };
+  
+    app.ngOnInit(); // Llamada explícita si accede a los datos en ngOnInit
+  
+  });
+
 });
