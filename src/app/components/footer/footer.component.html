@@ -30,7 +30,7 @@
       </ion-segment-button>
 
       <!-- Botón de Admin solo visible si el usuario es admin -->
-      <ion-segment-button *ngIf="admin_" value="admin" class="custom-segment-button">
+      <ion-segment-button id="admin" *ngIf="admin_" value="admin" class="custom-segment-button">
         <ion-icon name="person-outline"></ion-icon>
         {{ "HomePage.Button.Admin" | translate }}
       </ion-segment-button>

@@ -63,7 +63,7 @@ export class DatabaseService {
       '¿Cuál es tu flor favorita?',
       'tulipanes',
       'Admin', 
-      'Admin', 
+      'del sistema', 
       EducationalLevel.findLevel(6)!,
       new Date(2002, 12, 21),
       'Coquimbo',

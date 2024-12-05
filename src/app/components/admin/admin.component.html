@@ -15,7 +15,7 @@
       </ion-card-content>
     </ion-card>
   </ion-card>  
-  <ion-card style="background-color: rgba(104, 72, 13, 0.849);" *ngFor="let usuario of filtrarUsuarioEnSesion()">
+  <ion-card id="users" style="background-color: rgba(104, 72, 13, 0.849);" *ngFor="let usuario of filtrarUsuarioEnSesion()">
     <ion-card-header style="color: rgba(6, 6, 6, 0.812)">
       {{ usuario.firstName }} {{ usuario.lastName }}
     </ion-card-header>
@@ -25,7 +25,7 @@
     </ion-card-content>
 
     <div class="button-container">
-      <ion-button class="delete-button" (click)="eliminarUsuario(usuario)">
+      <ion-button id="eliminarUser" class="delete-button" (click)="eliminarUsuario(usuario)">
         <img src="/assets/images/1214428.png" alt="Eliminar" style="width: 20px; height: 20px;">
       </ion-button>
     </div>

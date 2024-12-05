@@ -186,17 +186,49 @@ describe('Verificar mi aplicación', () => {
 // });
 
 
-  it('Verificar el usuario administrador', () => {
+  // it('Verificar el usuario administrador', () => {
+  //   cy.visit('http://localhost:8100/login').then(() => {
+  //     cy.get('#cuenta').should('be.visible').type('admin');
+  //     cy.get('#password').type('admin');
+  //     cy.contains('Ingresar').click();
+  //     cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+  //     cy.get('h1').should('be.visible').and('contain.text', 'admin ');
+  //     cy.get('#admin').click();
+
+  
+  //   });
+  // });
+
+    it('Verificar el admin borre usuarios', () => {
     cy.visit('http://localhost:8100/login').then(() => {
       cy.get('#cuenta').should('be.visible').type('admin');
       cy.get('#password').type('admin');
       cy.contains('Ingresar').click();
       cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
-      cy.get('h1').should('be.visible').and('contain.text', 'admin');
-      cy.get('h1').should('be.visible').and('contain.text', 'administrar');
+      cy.get('h1').should('be.visible').and('contain.text', 'admin ');
+      cy.get('#admin').click();
+      cy.get('#users').should('have.length.greaterThan', 0);
+
+      // Seleccionar el primer `ion-card` y hacer clic en el botón de eliminación, forzando el clic.
+      cy.get('#users').first().find('#eliminarUser').click({ force: true });
+      // Interactuar con el cuadro de confirmación
+      cy.contains('¿Estás seguro que deseas eliminar este usuario').should('be.visible'); // Asegúrate de que el mensaje se muestra
+      cy.contains('Sí').click(); // Hacer clic en el botón "Sí"
+      cy.contains('Usuario eliminado exitosamente.').should('be.visible'); // Asegúrate de que el mensaje se muestra
+      cy.contains('Aceptar').click(); // Hacer clic en el botón "aceptar"
+
+      // Esperar un momento para que la lista de usuarios se actualice
+      cy.wait(1000);
+
+      // Verificar que la lista de usuarios se haya actualizado correctamente
+      cy.get('#users').should('have.length', 1); // Ajusta el valor esperado según tu caso
+      cy.get('#salir').should('be.visible').and('not.be.disabled').click();
+
+
   
     });
   });
+
 
 
 
