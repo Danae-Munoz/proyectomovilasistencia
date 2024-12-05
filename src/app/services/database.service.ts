@@ -12,6 +12,7 @@ import { Usuario } from '../model/usuario';
   providedIn: 'root'
 })
 export class DatabaseService {
+  static getData: any;
   static crearUsuariosDePrueba() {
     throw new Error('Method not implemented.');
   }
