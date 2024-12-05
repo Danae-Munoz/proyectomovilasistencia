@@ -224,7 +224,6 @@ it('Verificar actualizar en Mis Datos', () => {
       // Verificar que la lista de usuarios se haya actualizado correctamente
       cy.get('#users').should('have.length', 1); // Ajusta el valor esperado según tu caso
       cy.get('#salir').should('be.visible').and('not.be.disabled').click();
-      cy.get('#salir').should('be.visible').and('not.be.disabled').click();
 
   
     });
