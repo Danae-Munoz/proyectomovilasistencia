@@ -26,11 +26,11 @@ Comparar el texto de un control HTML identificado por un id="#saludo":
 
 describe('Verificar mi aplicación', () => {
 
-  // it('Salir', () => {
-  //   cy.visit('http://localhost:8100/home').then(() => {
-  //   cy.get('#salir').should('be.visible').and('not.be.disabled').click();
-  //   });
-  // });
+  it('Salir', () => {
+    cy.visit('http://localhost:8100/home').then(() => {
+    cy.get('#salir').should('be.visible').and('not.be.disabled').click();
+    });
+  });
 
   // Se intentará navegar hacia la página de inicio con un correo inexistente, por lo que
   // será inutil probar si el saludo se le emite al usuario "Juan Pérez González".
@@ -66,26 +66,26 @@ describe('Verificar mi aplicación', () => {
 
 
 
-  it('Verificar publicacion de foro', () => {
-    cy.visit('http://localhost:8100/login').then(() => {
-      cy.get('#cuenta').should('be.visible').type('atorres');
-      cy.get('#password').type('1234');   // Simular escritura
-      cy.contains('Ingresar').click();
-      cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
-      cy.get('h1').should('be.visible').and('contain.text', 'Ana Torres');
-      cy.contains('Foro').click();
-      cy.get('#titulo').should('be.visible').type('Carrera de Ingeniería en Informática en el Instituto Duoc', { timeout: 10000 });
-      cy.wait(2000);
-      // cy.get('ion-textarea#descripcion', { timeout: 10000 }).should('be.visible')
-      //   .type('Descripción de prueba', { force: true })
-      //   .should('have.value', 'Descripción de prueba');cy.contains('Guardar').click();
-      // // Verificar que la publicación se guardó correctamente
-      // cy.get('ion-list').children().should('have.length.greaterThan', 0);
-      // cy.get('ion-card').first().find('h4').should('contain.text', 'Título de prueba');
-      // cy.get('ion-card').first().find('p').should('contain.text', 'Descripción de prueba');
-       cy.get('#salir').should('be.visible').and('not.be.disabled').click();
-    });
-  });
+  // it('Verificar publicacion de foro', () => {
+  //   cy.visit('http://localhost:8100/login').then(() => {
+  //     cy.get('#cuenta').should('be.visible').type('atorres');
+  //     cy.get('#password').type('1234');   // Simular escritura
+  //     cy.contains('Ingresar').click();
+  //     cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+  //     cy.get('h1').should('be.visible').and('contain.text', 'Ana Torres');
+  //     cy.contains('Foro').click();
+  //     cy.get('#titulo').should('be.visible').type('Carrera de Ingeniería en Informática en el Instituto Duoc', { timeout: 10000 });
+  //     cy.wait(2000);
+  //     // cy.get('ion-textarea#descripcion', { timeout: 10000 }).should('be.visible')
+  //     //   .type('Descripción de prueba', { force: true })
+  //     //   .should('have.value', 'Descripción de prueba');cy.contains('Guardar').click();
+  //     // // Verificar que la publicación se guardó correctamente
+  //     // cy.get('ion-list').children().should('have.length.greaterThan', 0);
+  //     // cy.get('ion-card').first().find('h4').should('contain.text', 'Título de prueba');
+  //     // cy.get('ion-card').first().find('p').should('contain.text', 'Descripción de prueba');
+  //      cy.get('#salir').should('be.visible').and('not.be.disabled').click();
+  //   });
+  // });
 
   it('Verificar que se puede eliminar una publicación en el foro', () => {
     cy.visit('http://localhost:8100/login').then(() => {
