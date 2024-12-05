@@ -11,13 +11,13 @@
 
     <ion-card-content>
       <ion-item>
-        <ion-label position="floating" color="secondary" style="font-size: small !important;">{{'Footer.From.Titulo' | translate}}</ion-label>
-        <ion-input [(ngModel)]="post.title" placeholder="{{'Footer.From.Ingresa' | translate}}" required></ion-input>
+        <ion-label  position="floating" color="secondary" style="font-size: small !important;">{{'Footer.From.Titulo' | translate}}</ion-label>
+        <ion-input id="titulo" [(ngModel)]="post.title" placeholder="{{'Footer.From.Ingresa' | translate}}" required></ion-input>
       </ion-item>
       <br>
       <ion-item>
-        <ion-label position="floating" color="secondary">{{'Footer.From.Desc' | translate}}</ion-label>
-        <ion-textarea [(ngModel)]="post.body" placeholder="{{'Footer.From.Escribe' | translate}}" required></ion-textarea>
+        <ion-label  position="floating" color="secondary" style="font-size: small !important;">{{'Footer.From.Desc' | translate}}</ion-label>
+        <ion-textarea id="descripcion" [(ngModel)]="post.body" placeholder="{{'Footer.From.Escribe' | translate}}" required></ion-textarea>
       </ion-item>
 
       <div class="ion-text-center margin-top-6">
@@ -35,7 +35,7 @@
   </ion-card>
 
   <ion-list>
-    <ion-card style="--background: transparent; background-color: rgba(255, 255, 255, 0.705); padding: 10px; border-radius: 15px;" *ngFor="let post of posts; trackBy: getPostId">
+    <ion-card id="publi" style="--background: transparent; background-color: rgba(255, 255, 255, 0.705); padding: 10px; border-radius: 15px;" *ngFor="let post of posts; trackBy: getPostId">
       <ion-card-header>
         <h6 style="color: black;">({{'Footer.From.Public' | translate}}{{ post.id }}) {{ post.author }}</h6>
         <h4>{{ post.title }}</h4>
@@ -49,7 +49,7 @@
         <ion-fab-button size="small" color="primary" (click)="editPost(post)">
           <ion-icon name="pencil-outline"></ion-icon>
         </ion-fab-button>
-        <ion-fab-button size="small" color="danger" (click)="deletePost(post)">
+        <ion-fab-button id="eliminar" size="small" color="danger" (click)="deletePost(post)">
           <ion-icon name="trash-outline"></ion-icon>
         </ion-fab-button>
       </div>
