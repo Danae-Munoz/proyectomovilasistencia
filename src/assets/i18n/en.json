@@ -104,6 +104,10 @@
     "Datos.From.Actualizar": "Update data",
     "Datos.From.Limpiar": "Clear",
 
+    "WelcomePage.Title.scanner": "Scan the QR code in the box below!",
+    "WelcomePage.Subtitle.Message": "Access your attendance and stay up to date with your classes",
+    
+
     "Footer.From.Gestion": "Publication Management",
     "Footer.From.Titulo": "Title",
     "Footer.From.Ingresa": "Enter the title of the publication",

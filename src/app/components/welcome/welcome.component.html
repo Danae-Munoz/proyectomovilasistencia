@@ -1,15 +1,27 @@
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="welcome-content">
 
-  <!-- <img class="background-image" src="/assets/images/IMG_20230406_080720.jpg"> -->
-  <img class="background-image" src="assets/images/IMG_20230310_082210.jpg">
-  <br>
-  <div class="ion-text-center">
-    <ion-title id="wellcome_title ">{{ 'WelcomePage.Title.Wellcome' | translate }}</ion-title>
-    <h1 id=" saludo">{{ user.firstName }} {{ user.lastName }}</h1>
+  <!-- Imagen de fondo con efecto estético -->
+  <div class="background-container">
+    <img class="background-image" src="assets/images/IMG_20230310_082210.jpg" alt="Background">
   </div>
+  <br><br>
+  <!-- Contenido central estilizado -->
+   <ion-card>
+
+   
+  <div class="content-wrapper ion-text-center">
+    <h2 id="wellcome_title" class="welcome-title">{{ 'WelcomePage.Title.Wellcome' | translate }}</h2>
+    <h1 id="saludo" class="welcome-message">{{ user.firstName }} {{ user.lastName }}</h1>
+    <h3 class="welcome-subtitle">{{ 'WelcomePage.Subtitle.Message' | translate }}</h3>
+    <img src="assets/images/Captura_de_pantalla_2024-11-29_000710-removebg-preview.png" alt="">
+  </div>
+</ion-card>
+  <br>
   
-  
+
 </ion-content>
+
+
 
 

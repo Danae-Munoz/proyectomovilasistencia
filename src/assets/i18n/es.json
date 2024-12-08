@@ -23,6 +23,7 @@
     "Login.Placeholder.Cuenta": "Ingresa aquí tu cuenta",
 
     "WelcomePage.Title.Wellcome": "¡Bienvenido (a)!",
+    "WelcomePage.Title.scanner": "¡Escanea el código QR en el recuadro de abajo!",
 
     "HomePage.Button.Wellcome": "Inicio",
     "HomePage.Button.Scan": "Escanear",
@@ -114,7 +115,11 @@
     "Footer.From.Reciente": "Publicaciones Recientes",
     "Footer.From.Public": "Publicacion #",
 
-    "Clase.From.Necesitas": "Necesitas escanear un codigo Qr",
+    "WelcomePage.Subtitle.Message": "Accede a tu asistencia y mantente al día con tus clases",
+    
+    
+
+    "Clase.From.Necesitas": "Necesitas escanear un código Qr",
     "Map.From.Aqui": "Aquí",
     "Map.From.Ruta": "Ruta",
 

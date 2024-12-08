@@ -7,3 +7,86 @@ h1, h2 , ion-title{
     0 0 20px #000000, /* Segundo nivel de sombra */
     0 0 30px #000000, /* Tercer nivel de sombra */
 }
+.welcome-content {
+  --background: transparent;
+  background-color: rgba(239, 237, 235, 0.705); /* Fondo semi-transparente */
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+
+
+.content-wrapper {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1.5s ease-out;
+}
+
+.welcome-subtitle {
+  font-size: 1.2rem;
+  color: #8e8686;
+  margin-top: 10px;
+ 
+}
+ion-card{
+  --background: transparent;
+  background-color: rgba(255, 154, 53, 0.705); /* Fondo semi-transparente */
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.start-button {
+  margin-top: 20px;
+  --background: linear-gradient(to right, #f9d342, #ff914d);
+  --color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(249, 211, 66, 0.6);
+  transition: transform 0.2s ease-in-out;
+}
+
+.start-button:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 2.2rem;
+  }
+
+  .welcome-message {
+    font-size: 2rem;
+  }
+
+  .content-wrapper {
+    padding: 20px;
+  }
+}

@@ -117,6 +117,7 @@
     "Footer.From.Public": "Küpal #",
 
     "Clase.From.Necesitas": "Ñi ñamün üngün QR",
+    "WelcomePage.Subtitle.Message": "Ñamkuñmün tañi pichikeche ñi rüpü tañi pewma ñi klas",
 
     "Map.From.Aqui": "Che",
     "Map.From.Ruta": "Ñamku",
@@ -130,7 +131,10 @@
     "Miclase.From.Inicio": "Rakin Tüfachi",
     "Miclase.From.Termino": "Tüfachi Pewma",
     "Miclase.From.Hora": "Püle Rakin",
-    "Miclase.From.Horat": "Püle Pewma"
+    "Miclase.From.Horat": "Püle Pewma",
+
+    "WelcomePage.Title.scanner": "Küme llanka ñi QR kódigo ñi küzaw pewma mu!"
+    
 
 
 
