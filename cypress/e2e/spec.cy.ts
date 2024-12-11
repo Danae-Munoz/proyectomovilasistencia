@@ -58,7 +58,7 @@ describe('Verificar mi aplicación', () => {
       cy.get('#password').type('1234');   // Simular escritura
       cy.contains('Ingresar').click();
       cy.intercept('/qr-web-scanner').as('route');
-      cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+      cy.get('h2').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
       cy.get('h1').should('be.visible').and('contain.text', 'Ana Torres');
       cy.get('#salir').should('be.visible').and('not.be.disabled').click();
     });
@@ -92,7 +92,7 @@ describe('Verificar mi aplicación', () => {
       cy.get('#cuenta').should('be.visible').type('atorres');
       cy.get('#password').type('1234');   // Simular escritura
       cy.contains('Ingresar').click();
-      cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+      cy.get('h2').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
       cy.get('h1').should('be.visible').and('contain.text', 'Ana Torres');
       cy.contains('Foro').click();
        // Verificar que la lista de publicaciones contiene al menos una publicación.
@@ -115,7 +115,7 @@ describe('Verificar mi aplicación', () => {
     cy.get('#cuenta').should('be.visible').type('atorres');
     cy.get('#password').type('1234');
     cy.contains('Ingresar').click();
-    cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+    cy.get('h2').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
     cy.get('h1').should('be.visible').and('contain.text', 'Ana Torres');
     cy.contains('Mis datos').click();
   
@@ -155,7 +155,7 @@ it('Verificar actualizar en Mis Datos', () => {
     cy.get('#cuenta').should('be.visible').type('atorres');
     cy.get('#password').type('1234');
     cy.contains('Ingresar').click();
-    cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+    cy.get('h2').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
     cy.get('h1').should('be.visible').and('contain.text', 'Ana Torres');
     cy.contains('Mis datos').click();
   
@@ -192,7 +192,7 @@ it('Verificar actualizar en Mis Datos', () => {
       cy.get('#cuenta').should('be.visible').type('admin');
       cy.get('#password').type('admin');
       cy.contains('Ingresar').click();
-      cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+      cy.get('h2').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
       cy.get('h1').should('be.visible').and('contain.text', 'admin ');
       cy.get('#admin').click();
       cy.get('#salir').should('be.visible').and('not.be.disabled').click();
@@ -205,7 +205,7 @@ it('Verificar actualizar en Mis Datos', () => {
       cy.get('#cuenta').should('be.visible').type('admin');
       cy.get('#password').type('admin');
       cy.contains('Ingresar').click();
-      cy.get('ion-title').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
+      cy.get('h2').should('be.visible').and('contain.text', '¡Bienvenido (a)!');
       cy.get('h1').should('be.visible').and('contain.text', 'admin ');
       cy.get('#admin').click();
       cy.get('#users').should('have.length.greaterThan', 0);
